@@ -3,4 +3,5 @@
     <string name="mymeal">MyMeal</string>
     <string name="subhead"><![CDATA[Get your favourite food & drinks now!]]></string>
     <string name="get_started">Get started</string>
+    <string name="home_offer">just at <strike>159/-</strike> 99/- !!</string>
 </resources>
