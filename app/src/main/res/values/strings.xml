@@ -1,5 +1,5 @@
 <resources>
-    <string name="app_name">Food Delivery App</string>
+    <string name="app_name">MyMeal</string>
     <string name="mymeal">MyMeal</string>
     <string name="subhead"><![CDATA[Get your favourite food & drinks now!]]></string>
     <string name="get_started">Get started</string>
