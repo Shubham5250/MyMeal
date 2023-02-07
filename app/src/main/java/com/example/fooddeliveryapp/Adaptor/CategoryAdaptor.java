@@ -19,7 +19,7 @@ public class CategoryAdaptor extends RecyclerView.Adapter<CategoryAdaptor.ViewHo
     public ViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
         View inflate = LayoutInflater.from(parent.getContext()).inflate(R.layout.,parent,false);
 
-        return new ViewHolder(inflate);
+        return null;
     }
 
     @Override
@@ -41,7 +41,8 @@ public class CategoryAdaptor extends RecyclerView.Adapter<CategoryAdaptor.ViewHo
 
         public ViewHolder(View itemView) {
             super(itemView);
-            categoryName = itemView.findViewById(R.id.)
+            categoryName = itemView.findViewById(R.id.categoryName);
+            categoryPic = itemView.findViewById(R.id.categoryPic);
         }
     }
 }
