@@ -3,8 +3,11 @@ package com.example.fooddeliveryapp.Adaptor;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.ImageView;
+import android.widget.TextView;
 
 import androidx.annotation.NonNull;
+import androidx.constraintlayout.widget.ConstraintLayout;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.example.fooddeliveryapp.Domain.CategoryDomain;
@@ -30,8 +33,15 @@ public class CategoryAdaptor extends RecyclerView.Adapter<CategoryAdaptor.ViewHo
     }
 
     public class ViewHolder extends RecyclerView.ViewHolder{
-        public ViewHolder(View inflate) {
-            super();
+
+        TextView categoryName;
+        ImageView categoryPic;
+        ConstraintLayout mainLayout;
+
+
+        public ViewHolder(View itemView) {
+            super(itemView);
+            categoryName = itemView.findViewById(R.id.)
         }
     }
 }
