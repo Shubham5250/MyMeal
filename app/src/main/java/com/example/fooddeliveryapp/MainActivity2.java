@@ -6,6 +6,7 @@ import androidx.recyclerview.widget.RecyclerView;
 
 import android.os.Bundle;
 
+import com.example.fooddeliveryapp.Adaptor.CategoryAdaptor;
 import com.example.fooddeliveryapp.Domain.CategoryDomain;
 
 import java.util.ArrayList;
@@ -33,13 +34,17 @@ public class MainActivity2 extends AppCompatActivity {
 
         ArrayList<CategoryDomain> category = new ArrayList<>();
         category.add(new CategoryDomain("Pizza", "pizza_clipart"));
-        category.add(new CategoryDomain("Pan veggies", "panveggies"));
-        category.add(new CategoryDomain("Soft drinks", "soft_drinks"));
         category.add(new CategoryDomain("Veg meal", "veg_meal"));
+
+        category.add(new CategoryDomain("Soft drinks", "soft_drinks"));
+        category.add(new CategoryDomain("Pan veggies", "panveggies"));
+
         category.add(new CategoryDomain("Donut", "donut"));
+
         category.add(new CategoryDomain("Burger", "burger_clipart"));
 
-
+        adapter = new CategoryAdaptor(category);
+        recyclerViewCategoryList.setAdapter(adapter);
 
 
     }
