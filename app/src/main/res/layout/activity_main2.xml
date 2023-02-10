@@ -4,6 +4,8 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:focusable="true"
+    android:focusableInTouchMode="true"
     tools:context=".MainActivity2">
 
 
@@ -232,6 +234,7 @@
                 android:layout_height="wrap_content"
                 android:layout_marginStart="32dp"
                 android:layout_marginTop="8dp"
+                android:textSize="16sp"
                 android:fontFamily="@font/ubuntu_bold"
                 android:text="Popular"
                 app:layout_constraintStart_toStartOf="parent"

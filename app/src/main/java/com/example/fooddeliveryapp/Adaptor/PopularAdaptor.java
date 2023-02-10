@@ -1,5 +1,7 @@
 package com.example.fooddeliveryapp.Adaptor;
 
+import android.content.Intent;
+import android.os.Parcelable;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -12,6 +14,7 @@ import androidx.recyclerview.widget.RecyclerView;
 import com.bumptech.glide.Glide;
 import com.example.fooddeliveryapp.Domain.FoodDomain;
 import com.example.fooddeliveryapp.R;
+import com.example.fooddeliveryapp.ShowDetailsActivity;
 
 import java.util.ArrayList;
 
@@ -40,7 +43,14 @@ public class PopularAdaptor extends RecyclerView.Adapter<PopularAdaptor.ViewHold
         holder.title.setText(popularFood.get(position).getTitle());
         holder.fee.setText(String.valueOf(popularFood.get(position).getFee()));
 
-
+        holder.addText.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(holder.itemView.getContext(), ShowDetailsActivity.class);
+                intent.putExtra("object",popularFood.get(position));
+                holder.itemView.getContext().startActivity(intent);
+            }
+        });
 
 
 

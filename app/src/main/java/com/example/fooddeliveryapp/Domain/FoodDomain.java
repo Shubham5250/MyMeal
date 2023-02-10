@@ -1,22 +1,24 @@
 package com.example.fooddeliveryapp.Domain;
 
-public class FoodDomain {
+import java.io.Serializable;
+
+public class FoodDomain implements Serializable {
 
     private String title;
     private String pic;
     private String description;
-    private double fee;
+    private String fee;
     private int numberInCart;
 
 
-    public FoodDomain(String title, String pic, String description, double fee) {
+    public FoodDomain(String title, String pic, String description, String fee) {
         this.title = title;
         this.pic = pic;
         this.description = description;
         this.fee = fee;
     }
 
-    public FoodDomain(String title, String pic, String description, double fee, int numberInCart) {
+    public FoodDomain(String title, String pic, String description, String fee, int numberInCart) {
         this.title = title;
         this.pic = pic;
         this.description = description;
@@ -48,11 +50,12 @@ public class FoodDomain {
         this.description = description;
     }
 
-    public double getFee() {
+    public String getFee() {
+
         return fee;
     }
 
-    public void setFee(double fee) {
+    public void setFee(String fee) {
         this.fee = fee;
     }
 

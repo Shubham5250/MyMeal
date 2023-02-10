@@ -61,10 +61,10 @@ public class MainActivity2 extends AppCompatActivity {
 
 
         ArrayList<FoodDomain> popularList = new ArrayList<>();
-        popularList.add(new FoodDomain("Pepperoni Pizza", "pepperoni_pizza","slices pepperoni, mozzerella, fresh oregano, ground black pepper, pizza sauce",9.76));
-        popularList.add(new FoodDomain("Cheese Burger", "cheese_burger","beef, tomato,lattuce",8.79));
+        popularList.add(new FoodDomain("Pepperoni Pizza", "pepperoni_pizza","slices pepperoni, mozzerella, fresh oregano, ground black pepper, pizza sauce","9.76"));
+        popularList.add(new FoodDomain("Cheese Burger", "cheese_burger","beef, tomato,lattuce","8.79"));
 
-        popularList.add(new FoodDomain("Vegetable Pizza", "vegetable_pizza","olive oil, vegetable oil, cherry tomatoes",8.52));
+        popularList.add(new FoodDomain("Vegetable Pizza", "vegetable_pizza","olive oil, vegetable oil, cherry tomatoes","8.52"));
 
 
         adapter = new PopularAdaptor(popularList);
