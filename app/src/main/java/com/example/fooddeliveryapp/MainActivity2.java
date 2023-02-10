@@ -7,6 +7,7 @@ import androidx.recyclerview.widget.RecyclerView;
 import android.os.Bundle;
 
 import com.example.fooddeliveryapp.Adaptor.CategoryAdaptor;
+import com.example.fooddeliveryapp.Adaptor.PopularAdaptor;
 import com.example.fooddeliveryapp.Domain.CategoryDomain;
 import com.example.fooddeliveryapp.Domain.FoodDomain;
 
@@ -24,6 +25,7 @@ public class MainActivity2 extends AppCompatActivity {
         
         
         recyclerViewCategoryList();
+        recyclerViewPopularList();
     }
 
     private void recyclerViewCategoryList() {
@@ -58,18 +60,14 @@ public class MainActivity2 extends AppCompatActivity {
         recyclerViewPopularList.setLayoutManager(linearLayoutManager);
 
 
-        ArrayList<CategoryDomain> popularList = new ArrayList<>();
-        popularList.add(new FoodDomain("Pizza", "pizza_clipart","gngf"));
-        popularList.add(new CategoryDomain("Veg meal", "veg_meal"));
+        ArrayList<FoodDomain> popularList = new ArrayList<>();
+        popularList.add(new FoodDomain("Pepperoni Pizza", "pepperoni_pizza","slices pepperoni, mozzerella, fresh oregano, ground black pepper, pizza sauce",9.76));
+        popularList.add(new FoodDomain("Cheese Burger", "cheese_burger","beef, tomato,lattuce",8.79));
 
-        popularList.add(new CategoryDomain("Soft drinks", "soft_drinks"));
-        popularList.add(new CategoryDomain("Pan veggies", "panveggies"));
+        popularList.add(new FoodDomain("Vegetable Pizza", "vegetable_pizza","olive oil, vegetable oil, cherry tomatoes",8.52));
 
-        popularList.add(new CategoryDomain("Donut", "donut"));
 
-        popularList.add(new CategoryDomain("Burger", "burger_clipart"));
-
-        adapter = new CategoryAdaptor(popularList);
+        adapter = new PopularAdaptor(popularList);
         recyclerViewPopularList.setAdapter(adapter);
 
 
