@@ -9,6 +9,7 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.LinearLayout;
 
+import com.blogspot.atifsoftwares.animatoolib.Animatoo;
 import com.example.fooddeliveryapp.Adaptor.CategoryAdaptor;
 import com.example.fooddeliveryapp.Adaptor.PopularAdaptor;
 import com.example.fooddeliveryapp.Domain.CategoryDomain;
@@ -36,12 +37,14 @@ public class MainActivity2 extends AppCompatActivity {
     private void bottomNavigation(){
         FloatingActionButton floatingActionButton = findViewById(R.id.cartPng);
         LinearLayout homeBtn = findViewById(R.id.homebtn);
+        LinearLayout infobtn = findViewById(R.id.infobtn);
 
 
         floatingActionButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 startActivity(new Intent(MainActivity2.this, CartList.class));
+                Animatoo.INSTANCE.animateZoom(MainActivity2.this);
             }
         });
 
@@ -49,6 +52,13 @@ public class MainActivity2 extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 startActivity(new Intent(MainActivity2.this, MainActivity2.class));
+            }
+        });
+
+        infobtn.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                startActivity(new Intent(MainActivity2.this, info_activity.class));
             }
         });
     }

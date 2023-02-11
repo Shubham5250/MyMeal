@@ -11,6 +11,7 @@ import android.widget.LinearLayout;
 import android.widget.ScrollView;
 import android.widget.TextView;
 
+import com.blogspot.atifsoftwares.animatoolib.Animatoo;
 import com.example.fooddeliveryapp.Adaptor.CartListAdapator;
 import com.example.fooddeliveryapp.Helper.ManagementCart;
 import com.example.fooddeliveryapp.Interface.ChangeNumberItemListener;
@@ -56,6 +57,7 @@ public class CartList extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 startActivity(new Intent(CartList.this, MainActivity2.class));
+                Animatoo.INSTANCE.animateShrink(CartList.this);
             }
         });
     }
