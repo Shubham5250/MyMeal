@@ -4,12 +4,16 @@ import androidx.appcompat.app.AppCompatActivity;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
+import android.content.Intent;
 import android.os.Bundle;
+import android.view.View;
+import android.widget.LinearLayout;
 
 import com.example.fooddeliveryapp.Adaptor.CategoryAdaptor;
 import com.example.fooddeliveryapp.Adaptor.PopularAdaptor;
 import com.example.fooddeliveryapp.Domain.CategoryDomain;
 import com.example.fooddeliveryapp.Domain.FoodDomain;
+import com.google.android.material.floatingactionbutton.FloatingActionButton;
 
 import java.util.ArrayList;
 
@@ -26,6 +30,27 @@ public class MainActivity2 extends AppCompatActivity {
         
         recyclerViewCategoryList();
         recyclerViewPopularList();
+        bottomNavigation();
+    }
+
+    private void bottomNavigation(){
+        FloatingActionButton floatingActionButton = findViewById(R.id.cartPng);
+        LinearLayout homeBtn = findViewById(R.id.homebtn);
+
+
+        floatingActionButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                startActivity(new Intent(MainActivity2.this, CartList.class));
+            }
+        });
+
+        homeBtn.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                startActivity(new Intent(MainActivity2.this, MainActivity2.class));
+            }
+        });
     }
 
     private void recyclerViewCategoryList() {
@@ -61,10 +86,11 @@ public class MainActivity2 extends AppCompatActivity {
 
 
         ArrayList<FoodDomain> popularList = new ArrayList<>();
-        popularList.add(new FoodDomain("Pepperoni Pizza", "pepperoni_pizza","slices pepperoni, mozzerella, fresh oregano, ground black pepper, pizza sauce","9.76"));
-        popularList.add(new FoodDomain("Cheese Burger", "cheese_burger","beef, tomato,lattuce","8.79"));
+        popularList.add(new FoodDomain("Pepperoni Pizza", "pepperoni_pizza","Pepperoni is an American variety of spicy salami made from cured pork and beef seasoned with paprika or other chili pepper. Thinly sliced pepperoni is one of the most popular pizza toppings in American pizzerias.",  9.76));
+        popularList.add(new FoodDomain("Cheese Burger", "cheese_burger","A cheeseburger is a hamburger topped with cheese. Traditionally, the slice of cheese is placed on top of the meat patty. The cheese is usually added to the cooking hamburger patty shortly before serving, which allows the cheese to melt.", 8.79));
 
-        popularList.add(new FoodDomain("Vegetable Pizza", "vegetable_pizza","olive oil, vegetable oil, cherry tomatoes","8.52"));
+        popularList.add(new FoodDomain("Vegetable Pizza", "vegetable_pizza",
+                "Fresh tomatoes, onions, arugula, kale, eggplants, bell peppers, spinach, zucchini, mushrooms and more. They all make flavorsome vegetarian pizza toppings. ", 8.52));
 
 
         adapter = new PopularAdaptor(popularList);

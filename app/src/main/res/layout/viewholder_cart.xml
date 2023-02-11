@@ -1,0 +1,127 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:layout_marginStart="16dp"
+    android:layout_marginEnd="16dp">
+
+    <ImageView
+        android:id="@+id/picCart"
+        android:layout_width="148dp"
+        android:layout_height="126dp"
+        android:layout_marginStart="25dp"
+        android:layout_marginTop="16dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.0"
+        app:srcCompat="@drawable/pizza" />
+
+    <TextView
+        android:id="@+id/titleTxt"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="20dp"
+        android:fontFamily="@font/ubuntu_bold"
+        android:text="Title"
+        android:textColor="#0D0C0C"
+        android:textSize="18sp"
+        app:layout_constraintStart_toEndOf="@+id/picCart"
+        app:layout_constraintTop_toTopOf="@+id/picCart" />
+
+    <TextView
+        android:id="@+id/minusItem"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:background="@drawable/orange_button"
+        android:paddingStart="10dp"
+        android:paddingEnd="10dp"
+        android:text="-"
+        android:textAlignment="center"
+        android:textColor="#FFFFFF"
+        android:textSize="18sp"
+        android:textStyle="bold"
+        app:layout_constraintBottom_toBottomOf="@+id/picCart"
+        app:layout_constraintStart_toStartOf="@+id/titleTxt" />
+
+    <TextView
+        android:id="@+id/numberItemTxt"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="6dp"
+        android:text="1"
+        android:textColor="#770000"
+        android:textSize="18sp"
+        android:textStyle="bold"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintStart_toEndOf="@+id/minusItem"
+        app:layout_constraintTop_toTopOf="@+id/minusItem" />
+
+    <TextView
+        android:id="@+id/plusItem"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="6dp"
+        android:background="@drawable/orange_button"
+        android:paddingStart="10dp"
+        android:paddingEnd="10dp"
+        android:text="+"
+        android:textColor="#FFFFFF"
+        android:textSize="18sp"
+        android:textStyle="bold"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintStart_toEndOf="@+id/numberItemTxt"
+        app:layout_constraintTop_toTopOf="@+id/numberItemTxt"
+        app:layout_constraintVertical_bias="1.0" />
+
+    <TextView
+        android:id="@+id/feeEachItem"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginEnd="10dp"
+        android:text="0"
+        android:textColor="#012C5F"
+        app:layout_constraintBottom_toBottomOf="@+id/titleTxt"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="@+id/titleTxt" />
+
+    <TextView
+        android:id="@+id/textView24"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginEnd="6dp"
+        android:fontFamily="@font/ubuntu_bold"
+        android:text="$"
+        android:textColor="#FF8A1E"
+        app:layout_constraintBottom_toBottomOf="@+id/feeEachItem"
+        app:layout_constraintEnd_toStartOf="@+id/feeEachItem"
+        app:layout_constraintTop_toTopOf="@+id/feeEachItem" />
+
+    <TextView
+        android:id="@+id/totalFeeEachItem"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="0"
+        android:textColor="#012C5F"
+        app:layout_constraintBottom_toBottomOf="@+id/plusItem"
+        app:layout_constraintEnd_toEndOf="@+id/feeEachItem"
+        app:layout_constraintTop_toTopOf="@+id/plusItem"
+        app:layout_constraintVertical_bias="0.0" />
+
+    <TextView
+        android:id="@+id/textView26"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginEnd="6dp"
+        android:fontFamily="@font/ubuntu_bold"
+        android:text="$"
+        android:textColor="#FF8A1E"
+        app:layout_constraintBottom_toBottomOf="@+id/totalFeeEachItem"
+        app:layout_constraintEnd_toStartOf="@+id/totalFeeEachItem"
+        app:layout_constraintTop_toTopOf="@+id/totalFeeEachItem" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>

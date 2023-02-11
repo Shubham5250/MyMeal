@@ -77,7 +77,6 @@ public class ShowDetailsActivity extends AppCompatActivity {
             public void onClick(View v) {
                 object.setNumberInCart(numberOrder);
                 managementCart.insertFood(object);
-                Toast.makeText(ShowDetailsActivity.this, "Added to your cart", Toast.LENGTH_SHORT).show();
             }
         });
 
