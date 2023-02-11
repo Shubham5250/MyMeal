@@ -44,6 +44,8 @@ public class CartList extends AppCompatActivity {
     private void bottomNavigation(){
         FloatingActionButton floatingActionButton = findViewById(R.id.cartPng);
         LinearLayout homeBtn = findViewById(R.id.homebtn);
+        LinearLayout infobtn = findViewById(R.id.infobtn);
+
 
 
         floatingActionButton.setOnClickListener(new View.OnClickListener() {
@@ -57,6 +59,14 @@ public class CartList extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 startActivity(new Intent(CartList.this, MainActivity2.class));
+                Animatoo.INSTANCE.animateShrink(CartList.this);
+            }
+        });
+
+        infobtn.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                startActivity(new Intent(CartList.this, info_activity.class));
                 Animatoo.INSTANCE.animateShrink(CartList.this);
             }
         });

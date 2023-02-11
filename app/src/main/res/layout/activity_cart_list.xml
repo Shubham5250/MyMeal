@@ -185,15 +185,6 @@
             </LinearLayout>
 
             <TextView
-                android:id="@+id/emptyTxt"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:text="Your cart is empty!"
-                android:textAlignment="center"
-                android:textSize="16sp"
-                android:visibility="gone" />
-
-            <TextView
                 android:id="@+id/textView23"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
@@ -211,6 +202,19 @@
 
         </LinearLayout>
     </ScrollView>
+
+    <TextView
+        android:id="@+id/emptyTxt"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Your cart is empty!"
+        android:textAlignment="center"
+        android:textSize="16sp"
+        android:visibility="visible"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="@+id/scrollView3" />
 
     <androidx.coordinatorlayout.widget.CoordinatorLayout
         android:id="@+id/coordinatorLayout"

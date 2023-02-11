@@ -4,16 +4,21 @@ import static android.view.View.GONE;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.ImageView;
+import android.widget.LinearLayout;
 import android.widget.TextView;
+
+import com.blogspot.atifsoftwares.animatoolib.Animatoo;
 
 public class info_activity extends AppCompatActivity {
 
     TextView answer1, answer2, answer3, answer4;
     ImageView arrQ1, arrQ2, arrQ3, arrQ4;
     ImageView imageView5, imageView6, imageView7, imageView8;
+    LinearLayout homeBtn,infobtn;
 
 
     @Override
@@ -37,6 +42,9 @@ public class info_activity extends AppCompatActivity {
         imageView6 = findViewById(R.id.imageView6);
         imageView7 = findViewById(R.id.imageView7);
         imageView8 = findViewById(R.id.imageView8);
+
+        homeBtn = findViewById(R.id.homebtn);
+        infobtn = findViewById(R.id.infobtn);
 
 
         arrQ1.setOnClickListener(new View.OnClickListener() {
@@ -120,6 +128,22 @@ public class info_activity extends AppCompatActivity {
             }
         });
 
+
+        homeBtn.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                startActivity(new Intent(info_activity.this, MainActivity2.class));
+                Animatoo.INSTANCE.animateShrink(info_activity.this);
+            }
+        });
+
+        infobtn.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                startActivity(new Intent(info_activity.this, info_activity.class));
+                Animatoo.INSTANCE.animateShrink(info_activity.this);
+            }
+        });
 
     }
 }

@@ -59,6 +59,7 @@ public class MainActivity2 extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 startActivity(new Intent(MainActivity2.this, info_activity.class));
+                Animatoo.INSTANCE.animateShrink(MainActivity2.this);
             }
         });
     }
