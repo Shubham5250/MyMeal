@@ -53,36 +53,63 @@
 
             <LinearLayout
                 android:layout_width="match_parent"
-                android:layout_height="match_parent"
+                android:layout_height="wrap_content"
                 android:layout_margin="8dp"
+                android:layout_weight="1"
                 android:background="@drawable/cart_background"
                 android:elevation="3dp"
-                android:orientation="horizontal"
-                android:paddingStart="4dp"
-                android:paddingTop="4dp"
-                android:paddingBottom="4dp">
+                android:orientation="vertical">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_margin="8dp"
+                    android:elevation="3dp"
+                    android:orientation="horizontal"
+                    android:paddingStart="4dp"
+                    android:paddingTop="4dp">
+
+                    <TextView
+                        android:id="@+id/que1"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="4dp"
+                        android:layout_marginTop="3dp"
+                        android:layout_marginEnd="4dp"
+                        android:layout_marginBottom="3dp"
+                        android:layout_weight="1"
+                        android:fontFamily="@font/ubuntu_light"
+                        android:text="What's the average delivery time taken by MyMeal to deliver the food?"
+                        android:textSize="16sp" />
+
+                    <ImageView
+                        android:id="@+id/arrQ1"
+                        android:layout_width="48dp"
+                        android:layout_height="match_parent"
+                        android:layout_marginTop="3dp"
+                        android:layout_marginEnd="8dp"
+                        android:layout_marginBottom="3dp"
+                        android:layout_weight="1"
+                        android:src="@drawable/ic_baseline_keyboard_arrow_down_24" />
+
+                    <ImageView
+                        android:id="@+id/imageView5"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:visibility="gone"
+                        app:srcCompat="@drawable/ic_baseline_arrow_drop_up_24" />
+                </LinearLayout>
 
                 <TextView
-                    android:id="@+id/textView28"
-                    android:layout_width="wrap_content"
+                    android:id="@+id/answer1"
+                    android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:layout_marginStart="4dp"
-                    android:layout_marginTop="3dp"
-                    android:layout_marginEnd="4dp"
-                    android:layout_marginBottom="3dp"
-                    android:layout_weight="1"
-                    android:fontFamily="@font/ubuntu_light"
-                    android:text="What's the average delivery time taken by MyMeal to deliver the food?" />
+                    android:layout_margin="8dp"
+                    android:text="The average time taken by MyMeal to deliver the food lies between 15 - 20 minutes. Making it one of the most trusted,fast ans secure food delivery services."
+                    android:textSize="12sp"
+                    android:visibility="gone" />
 
-                <ImageView
-                    android:id="@+id/textView29"
-                    android:layout_width="48dp"
-                    android:layout_height="match_parent"
-                    android:layout_marginTop="3dp"
-                    android:layout_marginEnd="5dp"
-                    android:layout_marginBottom="3dp"
-                    android:layout_weight="1"
-                    android:src="@drawable/ic_baseline_keyboard_arrow_down_24" />
             </LinearLayout>
 
             <LinearLayout
@@ -91,32 +118,59 @@
                 android:layout_margin="8dp"
                 android:background="@drawable/cart_background"
                 android:elevation="3dp"
-                android:orientation="horizontal"
-                android:paddingStart="4dp"
-                android:paddingTop="4dp"
-                android:paddingBottom="4dp">
+                android:orientation="vertical">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_margin="8dp"
+                    android:orientation="horizontal"
+                    android:paddingStart="4dp"
+                    android:paddingTop="4dp"
+                    android:paddingEnd="4dp"
+                    android:paddingBottom="4dp">
+
+                    <TextView
+                        android:id="@+id/que2"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="8dp"
+                        android:layout_marginTop="3dp"
+                        android:layout_marginEnd="3dp"
+                        android:layout_marginBottom="3dp"
+                        android:layout_weight="1"
+                        android:fontFamily="@font/ubuntu_light"
+                        android:text="Are the people associted with MyMeal fully vaccinated and all the precautions of covid-19 are taken care of?"
+                        android:textSize="16sp" />
+
+                    <ImageView
+                        android:id="@+id/arrQ2"
+                        android:layout_width="48dp"
+                        android:layout_height="match_parent"
+                        android:layout_marginTop="3dp"
+                        android:layout_marginEnd="8dp"
+                        android:layout_marginBottom="3dp"
+                        android:layout_weight="1"
+                        android:src="@drawable/ic_baseline_keyboard_arrow_down_24" />
+
+                    <ImageView
+                        android:id="@+id/imageView6"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:visibility="gone"
+                        app:srcCompat="@drawable/ic_baseline_arrow_drop_up_24" />
+                </LinearLayout>
 
                 <TextView
-                    android:id="@+id/textView28"
-                    android:layout_width="wrap_content"
+                    android:id="@+id/answer2"
+                    android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:layout_marginStart="4dp"
-                    android:layout_marginTop="3dp"
-                    android:layout_marginEnd="4dp"
-                    android:layout_marginBottom="3dp"
-                    android:layout_weight="1"
-                    android:fontFamily="@font/ubuntu_light"
-                    android:text="What's the average delivery time taken by MyMeal to deliver the food?" />
+                    android:layout_margin="8dp"
+                    android:text="Yes, the people working in our organisation are fully vaccinated. At our centres, proper hygiene is maintained and regular checkup of all our employees is done. Don't worry, we assure you our safest and maximum contactless sservice possible."
+                    android:textSize="12sp"
+                    android:visibility="gone" />
 
-                <ImageView
-                    android:id="@+id/textView29"
-                    android:layout_width="48dp"
-                    android:layout_height="match_parent"
-                    android:layout_marginTop="3dp"
-                    android:layout_marginEnd="5dp"
-                    android:layout_marginBottom="3dp"
-                    android:layout_weight="1"
-                    android:src="@drawable/ic_baseline_keyboard_arrow_down_24" />
             </LinearLayout>
 
             <LinearLayout
@@ -125,32 +179,59 @@
                 android:layout_margin="8dp"
                 android:background="@drawable/cart_background"
                 android:elevation="3dp"
-                android:orientation="horizontal"
-                android:paddingStart="4dp"
-                android:paddingTop="4dp"
-                android:paddingBottom="4dp">
+                android:orientation="vertical">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:layout_margin="8dp"
+                    android:orientation="horizontal"
+                    android:paddingStart="4dp"
+                    android:paddingTop="4dp"
+                    android:paddingEnd="4dp"
+                    android:paddingBottom="4dp">
+
+                    <TextView
+                        android:id="@+id/que3"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="8dp"
+                        android:layout_marginTop="3dp"
+                        android:layout_marginEnd="4dp"
+                        android:layout_marginBottom="3dp"
+                        android:layout_weight="1"
+                        android:fontFamily="@font/ubuntu_light"
+                        android:text="Is the food ordered from MyMeal freshly baked under the proper hygiene?"
+                        android:textSize="16sp" />
+
+                    <ImageView
+                        android:id="@+id/arrQ3"
+                        android:layout_width="48dp"
+                        android:layout_height="match_parent"
+                        android:layout_marginTop="3dp"
+                        android:layout_marginEnd="8dp"
+                        android:layout_marginBottom="3dp"
+                        android:layout_weight="1"
+                        android:src="@drawable/ic_baseline_keyboard_arrow_down_24" />
+
+                    <ImageView
+                        android:id="@+id/imageView7"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:visibility="gone"
+                        app:srcCompat="@drawable/ic_baseline_arrow_drop_up_24" />
+                </LinearLayout>
 
                 <TextView
-                    android:id="@+id/textView28"
-                    android:layout_width="wrap_content"
+                    android:id="@+id/answer3"
+                    android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:layout_marginStart="4dp"
-                    android:layout_marginTop="3dp"
-                    android:layout_marginEnd="4dp"
-                    android:layout_marginBottom="3dp"
-                    android:layout_weight="1"
-                    android:fontFamily="@font/ubuntu_light"
-                    android:text="What's the average delivery time taken by MyMeal to deliver the food?" />
+                    android:layout_margin="8dp"
+                    android:text="Yes, the food we deliver is freshly picked up from a restaurant and directly delivered to our customers."
+                    android:textSize="12sp"
+                    android:visibility="gone" />
 
-                <ImageView
-                    android:id="@+id/textView29"
-                    android:layout_width="48dp"
-                    android:layout_height="match_parent"
-                    android:layout_marginTop="3dp"
-                    android:layout_marginEnd="5dp"
-                    android:layout_marginBottom="3dp"
-                    android:layout_weight="1"
-                    android:src="@drawable/ic_baseline_keyboard_arrow_down_24" />
             </LinearLayout>
 
             <LinearLayout
@@ -159,32 +240,59 @@
                 android:layout_margin="8dp"
                 android:background="@drawable/cart_background"
                 android:elevation="3dp"
-                android:orientation="horizontal"
-                android:paddingStart="4dp"
-                android:paddingTop="4dp"
-                android:paddingBottom="4dp">
+                android:orientation="vertical">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:layout_margin="8dp"
+                    android:orientation="horizontal"
+                    android:paddingStart="4dp"
+                    android:paddingTop="4dp"
+                    android:paddingEnd="4dp"
+                    android:paddingBottom="4dp">
+
+                    <TextView
+                        android:id="@+id/que4"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="8dp"
+                        android:layout_marginTop="3dp"
+                        android:layout_marginEnd="4dp"
+                        android:layout_marginBottom="3dp"
+                        android:layout_weight="1"
+                        android:fontFamily="@font/ubuntu_light"
+                        android:text="What customer support does MyMeal provides when food delivered late or in stale condition?"
+                        android:textSize="16sp" />
+
+                    <ImageView
+                        android:id="@+id/arrQ4"
+                        android:layout_width="48dp"
+                        android:layout_height="match_parent"
+                        android:layout_marginTop="3dp"
+                        android:layout_marginEnd="8dp"
+                        android:layout_marginBottom="3dp"
+                        android:layout_weight="1"
+                        android:src="@drawable/ic_baseline_keyboard_arrow_down_24" />
+
+                    <ImageView
+                        android:id="@+id/imageView8"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:visibility="gone"
+                        app:srcCompat="@drawable/ic_baseline_arrow_drop_up_24" />
+                </LinearLayout>
 
                 <TextView
-                    android:id="@+id/textView28"
-                    android:layout_width="wrap_content"
+                    android:id="@+id/answer4"
+                    android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:layout_marginStart="4dp"
-                    android:layout_marginTop="3dp"
-                    android:layout_marginEnd="4dp"
-                    android:layout_marginBottom="3dp"
-                    android:layout_weight="1"
-                    android:fontFamily="@font/ubuntu_light"
-                    android:text="What's the average delivery time taken by MyMeal to deliver the food?" />
+                    android:layout_margin="8dp"
+                    android:text="MyMeal provides 24x7 customer support through its landline services - 0265 300231 and email -  mymeal@customersupport.in. Feel free to contact on the given details and our team will definitely reach out to you."
+                    android:textSize="12sp"
+                    android:visibility="gone" />
 
-                <ImageView
-                    android:id="@+id/textView29"
-                    android:layout_width="48dp"
-                    android:layout_height="match_parent"
-                    android:layout_marginTop="3dp"
-                    android:layout_marginEnd="5dp"
-                    android:layout_marginBottom="3dp"
-                    android:layout_weight="1"
-                    android:src="@drawable/ic_baseline_keyboard_arrow_down_24" />
             </LinearLayout>
 
         </LinearLayout>
