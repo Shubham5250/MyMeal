@@ -52,6 +52,7 @@
                 android:textSize="18sp" />
 
             <LinearLayout
+                android:id="@+id/question1"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_margin="8dp"
@@ -113,6 +114,7 @@
             </LinearLayout>
 
             <LinearLayout
+                android:id="@+id/question2"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
                 android:layout_margin="8dp"
@@ -174,6 +176,7 @@
             </LinearLayout>
 
             <LinearLayout
+                android:id="@+id/question3"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
                 android:layout_margin="8dp"
@@ -235,6 +238,7 @@
             </LinearLayout>
 
             <LinearLayout
+                android:id="@+id/question4"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
                 android:layout_margin="8dp"

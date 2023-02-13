@@ -231,14 +231,22 @@
                     android:id="@+id/textView4"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="TextView"
-                    app:layout_constraintTop_toBottomOf="@+id/recyclerView"
-                    tools:layout_editor_absoluteX="9dp" />
+                    android:layout_marginStart="36dp"
+                    android:layout_marginEnd="275dp"
+                    android:fontFamily="@font/ubuntu_bold"
+                    android:text="Popular"
+                    android:textSize="16sp"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintHorizontal_bias="0.0"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/recyclerView" />
 
                 <androidx.recyclerview.widget.RecyclerView
                     android:id="@+id/recycleView2"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
+                    android:layout_marginStart="14dp"
+                    android:layout_marginEnd="14dp"
                     app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintStart_toStartOf="parent"
                     app:layout_constraintTop_toBottomOf="@+id/textView4" />
