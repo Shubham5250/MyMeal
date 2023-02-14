@@ -19,20 +19,25 @@ import java.util.ArrayList;
 
 public class CategoryAdaptor extends RecyclerView.Adapter<CategoryAdaptor.ViewHolder> {
 
+    // ArrayList => Dynamic Array
     ArrayList<CategoryDomain>categoryDomains;
 
+
+    // ===== CategoryAdaptor Constructor =====
     public CategoryAdaptor(ArrayList<CategoryDomain> categoryDomains){
         this.categoryDomains = categoryDomains;
     }
 
+
+    // ====== onCreateViewHolder only creates a new view holder when there are no existing view holders which the RecyclerView can reuse. =====
     @NonNull
     @Override
     public ViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
 
-
-
+        // ==== Inflate layout viewHolder_category to parent ====
         View inflate = LayoutInflater.from(parent.getContext()).inflate(R.layout.viewholder_category,parent,false);
 
+        // ==== ViewHolder ==> ViewHolder is a type of helper class that allows us to draw the UI for individual items on the screen. =====
         return new ViewHolder(inflate);
     }
 
@@ -81,12 +86,16 @@ public class CategoryAdaptor extends RecyclerView.Adapter<CategoryAdaptor.ViewHo
         }
 
         int drawableResourceId = holder.itemView.getContext().getResources().getIdentifier(picUrl,"drawable",holder.itemView.getContext().getPackageName());
+
+        // ==== Glide is an Image Loader Library for Android developed by bumptech and is a library that is recommended by Google. ====
         Glide.with(holder.itemView.getContext())
                 .load(drawableResourceId)
                 .into(holder.categoryPic);
 
     }
 
+
+    // ==== get the itemcount of categoryDomain ArrayList ====
     @Override
     public int getItemCount() {
 

@@ -5,6 +5,8 @@ public class CategoryDomain {
     private String title;
     private String pic;
 
+
+    // === is the constructor to specify what does each particular element in arraylist has (here title, pic) ===
     public CategoryDomain(String title, String pic){
 
 
@@ -15,7 +17,7 @@ public class CategoryDomain {
     }
 
 
-
+    // === GETTER AND SETTER METHODS FOR TITLE AND PIC ===
     public String getTitle() {
         return title;
     }

@@ -98,22 +98,28 @@ public class MainActivity2 extends AppCompatActivity {
     }
 
 
+    // ======== PopularList function for adding elements to the linearlayout.HORIZONTAL ========
+
     private void recyclerViewPopularList() {
 
+        // === creating horizontal linearlayout of popular list ===
         LinearLayoutManager linearLayoutManager = new LinearLayoutManager(this, LinearLayoutManager.HORIZONTAL,false);
         recyclerViewPopularList = findViewById(R.id.recycleView2);
         recyclerViewPopularList.setLayoutManager(linearLayoutManager);
 
-
+        // === creating ArrayList named popularList of FoodDomain ===
         ArrayList<FoodDomain> popularList = new ArrayList<>();
+
+        // === adding elements to the ArrayList ===
         popularList.add(new FoodDomain("Pepperoni Pizza", "pepperoni_pizza","Pepperoni is an American variety of spicy salami made from cured pork and beef seasoned with paprika or other chili pepper. Thinly sliced pepperoni is one of the most popular pizza toppings in American pizzerias.",  9.76));
         popularList.add(new FoodDomain("Cheese Burger", "cheese_burger","A cheeseburger is a hamburger topped with cheese. Traditionally, the slice of cheese is placed on top of the meat patty. The cheese is usually added to the cooking hamburger patty shortly before serving, which allows the cheese to melt.", 8.79));
         popularList.add(new FoodDomain("Vegetable Pizza", "vegetable_pizza",
                 "Fresh tomatoes, onions, arugula, kale, eggplants, bell peppers, spinach, zucchini, mushrooms and more. They all make flavorsome vegetarian pizza toppings. ", 8.52));
 
+        // === Adapter acts as a bridge between the UI component(ListView , GridView) and data sources(ArrayList, HashMap) ===
         adapter = new PopularAdaptor(popularList);
         recyclerViewPopularList.setAdapter(adapter);
-
+        // === here it is binding recycleview and arraylist ===
 
     }
 }
