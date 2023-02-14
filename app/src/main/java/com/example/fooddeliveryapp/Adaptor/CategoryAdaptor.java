@@ -36,61 +36,65 @@ public class CategoryAdaptor extends RecyclerView.Adapter<CategoryAdaptor.ViewHo
 
         // ==== Inflate layout viewHolder_category to parent ====
         View inflate = LayoutInflater.from(parent.getContext()).inflate(R.layout.viewholder_category,parent,false);
+        // ==== The first argument takes the layout file which is needed to be inflated. The second argument is the root of this newly inflated layout.====
+
 
         // ==== ViewHolder ==> ViewHolder is a type of helper class that allows us to draw the UI for individual items on the screen. =====
         return new ViewHolder(inflate);
     }
 
-    @Override
-    public void onBindViewHolder(@NonNull ViewHolder holder, int position) {
 
-        holder.categoryName.setText(categoryDomains.get(position).getTitle());
+    // ===== This method should update the contents of the itemView to reflect the item at the given position. ======
+    @Override
+    public void onBindViewHolder(@NonNull ViewHolder holdr, int position) {
+
+        holdr.categoryName.setText(categoryDomains.get(position).getTitle());
         String picUrl = "";
         switch (position){
             case 0:{
                 picUrl = "pizza_clipart";
-                holder.mainLayout.setBackground(ContextCompat.getDrawable(holder.itemView.getContext(),R.drawable.cat_background1));
+                holdr.mainLayout.setBackground(ContextCompat.getDrawable(holdr.itemView.getContext(),R.drawable.cat_background1));
 
                 break;
             }
             case 1:{
                 picUrl = "veg_meal";
-                holder.mainLayout.setBackground(ContextCompat.getDrawable(holder.itemView.getContext(),R.drawable.cat_background4));
+                holdr.mainLayout.setBackground(ContextCompat.getDrawable(holdr.itemView.getContext(),R.drawable.cat_background4));
                 break;
 
             }
             case 2:{
                 picUrl = "soft_drinks";
-                holder.mainLayout.setBackground(ContextCompat.getDrawable(holder.itemView.getContext(),R.drawable.cat_background3));
+                holdr.mainLayout.setBackground(ContextCompat.getDrawable(holdr.itemView.getContext(),R.drawable.cat_background3));
                 break;
 
             }
             case 3:{
                 picUrl = "panveggies";
-                holder.mainLayout.setBackground(ContextCompat.getDrawable(holder.itemView.getContext(),R.drawable.cat_background2));
+                holdr.mainLayout.setBackground(ContextCompat.getDrawable(holdr.itemView.getContext(),R.drawable.cat_background2));
                 break;
 
             }
             case 4:{
                 picUrl = "donut";
-                holder.mainLayout.setBackground(ContextCompat.getDrawable(holder.itemView.getContext(),R.drawable.cat_background5));
+                holdr.mainLayout.setBackground(ContextCompat.getDrawable(holdr.itemView.getContext(),R.drawable.cat_background5));
                 break;
 
             }
             case 5:{
                 picUrl = "burger_clipart";
-                holder.mainLayout.setBackground(ContextCompat.getDrawable(holder.itemView.getContext(),R.drawable.cat_background6));
+                holdr.mainLayout.setBackground(ContextCompat.getDrawable(holdr.itemView.getContext(),R.drawable.cat_background6));
                 break;
 
             }
         }
 
-        int drawableResourceId = holder.itemView.getContext().getResources().getIdentifier(picUrl,"drawable",holder.itemView.getContext().getPackageName());
+        int drawableResourceId = holdr.itemView.getContext().getResources().getIdentifier(picUrl,"drawable",holdr.itemView.getContext().getPackageName());
 
         // ==== Glide is an Image Loader Library for Android developed by bumptech and is a library that is recommended by Google. ====
-        Glide.with(holder.itemView.getContext())
+        Glide.with(holdr.itemView.getContext())
                 .load(drawableResourceId)
-                .into(holder.categoryPic);
+                .into(holdr.categoryPic);
 
     }
 
