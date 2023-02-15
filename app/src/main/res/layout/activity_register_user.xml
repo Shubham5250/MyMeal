@@ -9,12 +9,12 @@
 
     <ImageView
         android:id="@+id/imageView14"
-        android:layout_width="0dp"
+        android:layout_width="wrap_content"
         android:layout_height="0dp"
         android:layout_marginTop="50dp"
         app:layout_constraintBottom_toTopOf="@+id/textView22"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintHorizontal_bias="1.0"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         app:srcCompat="@drawable/logo" />
@@ -25,10 +25,10 @@
         android:layout_height="wrap_content"
         android:layout_marginStart="60dp"
         android:layout_marginEnd="60dp"
-        android:layout_marginBottom="15dp"
+        android:layout_marginBottom="20dp"
         android:fontFamily="@font/ubuntu_bold"
         android:text="Sign up / login to your account"
-        android:textColor="#FFFFFF"
+        android:textColor="#903737"
         android:textSize="20sp"
         app:layout_constraintBottom_toTopOf="@+id/linearLayout2"
         app:layout_constraintEnd_toEndOf="parent"
@@ -40,12 +40,14 @@
         android:id="@+id/linearLayout2"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:layout_marginTop="20dp"
+        android:layout_marginBottom="20dp"
         android:background="#FFFFFF"
         android:orientation="vertical"
-        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintBottom_toTopOf="@+id/hasaccounttxt"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent">
+        app:layout_constraintTop_toBottomOf="@+id/textView22">
 
         <LinearLayout
             android:layout_width="match_parent"
@@ -66,7 +68,7 @@
                 android:textSize="20sp" />
 
             <TextView
-                android:id="@+id/login_btn"
+                android:id="@+id/login_btnuser"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
@@ -74,6 +76,7 @@
                 android:padding="15dp"
                 android:text="Login"
                 android:textAlignment="center"
+                android:textColor="#424040"
                 android:textSize="20sp" />
         </LinearLayout>
 
@@ -88,7 +91,8 @@
                 android:layout_height="wrap_content"
                 android:layout_margin="30dp"
                 android:orientation="vertical"
-                android:visibility="visible">
+                android:visibility="visible"
+                tools:visibility="visible">
 
                 <EditText
                     android:id="@+id/signup_username"
@@ -153,10 +157,11 @@
             <LinearLayout
                 android:id="@+id/loginuser_layout"
                 android:layout_width="match_parent"
-                android:layout_height="match_parent"
+                android:layout_height="wrap_content"
                 android:layout_margin="30dp"
                 android:orientation="vertical"
-                android:visibility="gone">
+                android:visibility="visible"
+                tools:visibility="visible">
 
 
                 <EditText
@@ -186,6 +191,7 @@
         android:id="@+id/hasaccounttxt"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_marginBottom="28dp"
         android:fontFamily="@font/ubuntu_bold"
         android:text="Already have an account?"
         android:textColor="#FF8A1E"
@@ -194,9 +200,7 @@
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.497"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/linearLayout2"
-        app:layout_constraintVertical_bias="0.368" />
+        app:layout_constraintStart_toStartOf="parent" />
 
     <TextView
         android:id="@+id/textView31"
