@@ -51,132 +51,111 @@ public class info_activity extends AppCompatActivity {
 
         question1 = findViewById(R.id.question1);
 
-//        arrQ1.setOnClickListener(new View.OnClickListener() {
-//            @Override
-//            public void onClick(View v) {
-//                arrQ1.setVisibility(GONE);
-//                imageView5.setVisibility(View.VISIBLE);
-//
-//                answer1.setVisibility(View.VISIBLE);
-//            }
-//        });
-//
-//        arrQ2.setOnClickListener(new View.OnClickListener() {
-//            @Override
-//            public void onClick(View v) {
-//                arrQ2.setVisibility(GONE);
-//                imageView6.setVisibility(View.VISIBLE);
-//                answer2.setVisibility(View.VISIBLE);
-//            }
-//        });
-//
-//        arrQ3.setOnClickListener(new View.OnClickListener() {
-//            @Override
-//            public void onClick(View v) {
-//                arrQ3.setVisibility(GONE);
-//                imageView7.setVisibility(View.VISIBLE);
-//
-//                answer3.setVisibility(View.VISIBLE);
-//            }
-//        });
-//
-//        arrQ4.setOnClickListener(new View.OnClickListener() {
-//            @Override
-//            public void onClick(View v) {
-//                arrQ4.setVisibility(GONE);
-//                imageView8.setVisibility(View.VISIBLE);
-//
-//                answer4.setVisibility(View.VISIBLE);
-//            }
-//        });
-//
-//        imageView5.setOnClickListener(new View.OnClickListener() {
-//            @Override
-//            public void onClick(View v) {
-//
-//                imageView5.setVisibility(GONE);
-//                answer1.setVisibility(GONE);
-//                arrQ1.setVisibility(View.VISIBLE);
-//
-//            }
-//        });
-//
-//        imageView6.setOnClickListener(new View.OnClickListener() {
-//            @Override
-//            public void onClick(View v) {
-//
-//                imageView6.setVisibility(GONE);
-//                answer2.setVisibility(GONE);
-//                arrQ2.setVisibility(View.VISIBLE);
-//
-//            }
-//        });
-//
-//        imageView7.setOnClickListener(new View.OnClickListener() {
-//            @Override
-//            public void onClick(View v) {
-//                imageView7.setVisibility(GONE);
-//                answer3.setVisibility(GONE);
-//                arrQ3.setVisibility(View.VISIBLE);
-//
-//
-//            }
-//        });
-//
-//        imageView8.setOnClickListener(new View.OnClickListener() {
-//            @Override
-//            public void onClick(View v) {
-//                imageView8.setVisibility(GONE);
-//                answer4.setVisibility(GONE);
-//                arrQ4.setVisibility(View.VISIBLE);
-//            }
-//        });
-//
-//
-//        homeBtn.setOnClickListener(new View.OnClickListener() {
-//            @Override
-//            public void onClick(View v) {
-//                startActivity(new Intent(info_activity.this, MainActivity2.class));
-//                Animatoo.INSTANCE.animateShrink(info_activity.this);
-//            }
-//        });
-//
-//        infobtn.setOnClickListener(new View.OnClickListener() {
-//            @Override
-//            public void onClick(View v) {
-//                startActivity(new Intent(info_activity.this, info_activity.class));
-//                Animatoo.INSTANCE.animateShrink(info_activity.this);
-//            }
-//        });
-        int counter;
-        question1.setOnClickListener(new View.OnClickListener() {
-                                         @Override
-                                         public void onClick(View v) {
-                                             answer1.setVisibility(View.VISIBLE);
+        arrQ1.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                arrQ1.setVisibility(GONE);
+                imageView5.setVisibility(View.VISIBLE);
+
+                answer1.setVisibility(View.VISIBLE);
+            }
+        });
+
+        arrQ2.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                arrQ2.setVisibility(GONE);
+                imageView6.setVisibility(View.VISIBLE);
+                answer2.setVisibility(View.VISIBLE);
+            }
+        });
+
+        arrQ3.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                arrQ3.setVisibility(GONE);
+                imageView7.setVisibility(View.VISIBLE);
+
+                answer3.setVisibility(View.VISIBLE);
+            }
+        });
+
+        arrQ4.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                arrQ4.setVisibility(GONE);
+                imageView8.setVisibility(View.VISIBLE);
+
+                answer4.setVisibility(View.VISIBLE);
+            }
+        });
+
+        imageView5.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+
+                imageView5.setVisibility(GONE);
+                answer1.setVisibility(GONE);
+                arrQ1.setVisibility(View.VISIBLE);
+
+            }
+        });
+
+        imageView6.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+
+                imageView6.setVisibility(GONE);
+                answer2.setVisibility(GONE);
+                arrQ2.setVisibility(View.VISIBLE);
+
+            }
+        });
+
+        imageView7.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                imageView7.setVisibility(GONE);
+                answer3.setVisibility(GONE);
+                arrQ3.setVisibility(View.VISIBLE);
 
 
-                                         }
-                                     }
-        );
+            }
+        });
 
-        if(answer1.){
-            question1.setOnClickListener(new View.OnClickListener() {
-                @Override
-                public void onClick(View v) {
-                    answer1.setVisibility(GONE);
-                }
-            });
+        imageView8.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                imageView8.setVisibility(GONE);
+                answer4.setVisibility(GONE);
+                arrQ4.setVisibility(View.VISIBLE);
+            }
+        });
 
-        }
+
+        homeBtn.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                startActivity(new Intent(info_activity.this, MainActivity2.class));
+                Animatoo.INSTANCE.animateShrink(info_activity.this);
+            }
+        });
+
+        infobtn.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                startActivity(new Intent(info_activity.this, info_activity.class));
+                Animatoo.INSTANCE.animateShrink(info_activity.this);
+            }
+        });
+
+
+
+
 
 
     }
 
-
-    public void isVisible(){
-        answer1.setVisibility(View.VISIBLE);
-
-    }
 
 
 

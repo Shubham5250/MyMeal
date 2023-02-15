@@ -35,7 +35,7 @@
                 android:layout_height="wrap_content"
                 android:layout_marginTop="20dp"
                 android:fontFamily="@font/ubuntu_bold"
-                android:text="$"
+                android:text="₹"
                 android:textAlignment="center"
                 android:textColor="#0E9C31"
                 android:textSize="26sp"

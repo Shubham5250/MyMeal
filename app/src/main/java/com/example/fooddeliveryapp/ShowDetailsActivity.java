@@ -1,17 +1,18 @@
-package com.example.fooddeliveryapp;
 
-import androidx.appcompat.app.AppCompatActivity;
+        package com.example.fooddeliveryapp;
 
-import android.annotation.SuppressLint;
-import android.os.Bundle;
-import android.view.View;
-import android.widget.ImageView;
-import android.widget.TextView;
-import android.widget.Toast;
+        import androidx.appcompat.app.AppCompatActivity;
 
-import com.bumptech.glide.Glide;
-import com.example.fooddeliveryapp.Domain.FoodDomain;
-import com.example.fooddeliveryapp.Helper.ManagementCart;
+        import android.annotation.SuppressLint;
+        import android.os.Bundle;
+        import android.view.View;
+        import android.widget.ImageView;
+        import android.widget.TextView;
+        import android.widget.Toast;
+
+        import com.bumptech.glide.Glide;
+        import com.example.fooddeliveryapp.Domain.FoodDomain;
+        import com.example.fooddeliveryapp.Helper.ManagementCart;
 
 public class ShowDetailsActivity extends AppCompatActivity {
 
@@ -48,7 +49,7 @@ public class ShowDetailsActivity extends AppCompatActivity {
                 .into(picFood);
 
         titleText.setText(object.getTitle());
-        feeTxt.setText("$ "+object.getFee());
+        feeTxt.setText("₹ "+object.getFee());
         descriptionText.setText(object.getDescription());
         numberTxt.setText(String.valueOf(numberOrder));
 

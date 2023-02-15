@@ -39,6 +39,7 @@ public class CartList extends AppCompatActivity {
         initList();
         calculateCart();
         bottomNavigation();
+
     }
 
     private void bottomNavigation(){
@@ -84,6 +85,8 @@ public class CartList extends AppCompatActivity {
         emptyTxt = findViewById(R.id.emptyTxt);
 
 
+
+
     }
 
 
@@ -118,11 +121,11 @@ public class CartList extends AppCompatActivity {
         double itemTotal = Math.round(managementCart.getTotalFee()*100)/100;
 
 
-        totalItemFee.setText("$"+ itemTotal);
-        taxText.setText("$"+ tax);
-        deliveryChargesText.setText("$"+ delivery);
-        totalText.setText("$"+total);
-    }
+        totalItemFee.setText("₹"+ itemTotal);
+        taxText.setText("₹"+ tax);
+        deliveryChargesText.setText("₹"+ delivery);
+        totalText.setText("₹"+total);
 
+    }
 
 }
