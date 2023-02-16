@@ -18,7 +18,7 @@ public class info_activity extends AppCompatActivity {
     TextView answer1, answer2, answer3, answer4;
     ImageView arrQ1, arrQ2, arrQ3, arrQ4;
     ImageView imageView5, imageView6, imageView7, imageView8;
-    LinearLayout homeBtn,infobtn;
+    LinearLayout homeBtn,infobtn, profilebtn;
     LinearLayout question1, question2, question3, question4;
 
 
@@ -47,6 +47,7 @@ public class info_activity extends AppCompatActivity {
 
         homeBtn = findViewById(R.id.homebtn);
         infobtn = findViewById(R.id.infobtn);
+        profilebtn = findViewById(R.id.profilebtn);
 
 
         question1 = findViewById(R.id.question1);
@@ -149,6 +150,13 @@ public class info_activity extends AppCompatActivity {
             }
         });
 
+
+        profilebtn.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                startActivity(new Intent(info_activity.this, profile.class));
+            }
+        });
 
 
 

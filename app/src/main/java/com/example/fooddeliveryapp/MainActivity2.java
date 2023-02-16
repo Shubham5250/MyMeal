@@ -41,6 +41,7 @@ public class MainActivity2 extends AppCompatActivity {
         FloatingActionButton floatingActionButton = findViewById(R.id.cartPng);
         LinearLayout homeBtn = findViewById(R.id.homebtn);
         LinearLayout infobtn = findViewById(R.id.infobtn);
+        LinearLayout profilebtn = findViewById(R.id.profilebtn);
 
         // === click listener on CART button ===
         floatingActionButton.setOnClickListener(new View.OnClickListener() {
@@ -65,6 +66,13 @@ public class MainActivity2 extends AppCompatActivity {
             public void onClick(View v) {
                 startActivity(new Intent(MainActivity2.this, info_activity.class));
                 Animatoo.INSTANCE.animateShrink(MainActivity2.this);
+            }
+        });
+
+        profilebtn.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                startActivity(new Intent(MainActivity2.this, profile.class));
             }
         });
     }
