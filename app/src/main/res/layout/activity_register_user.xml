@@ -9,8 +9,8 @@
 
     <ImageView
         android:id="@+id/imageView14"
-        android:layout_width="wrap_content"
-        android:layout_height="0dp"
+        android:layout_width="406dp"
+        android:layout_height="102dp"
         android:layout_marginTop="50dp"
         app:layout_constraintBottom_toTopOf="@+id/textView22"
         app:layout_constraintEnd_toEndOf="parent"
@@ -25,12 +25,10 @@
         android:layout_height="wrap_content"
         android:layout_marginStart="60dp"
         android:layout_marginEnd="60dp"
-        android:layout_marginBottom="20dp"
         android:fontFamily="@font/ubuntu_bold"
         android:text="Sign up / login to your account"
-        android:textColor="#903737"
+        android:textColor="#FFFFFF"
         android:textSize="20sp"
-        app:layout_constraintBottom_toTopOf="@+id/linearLayout2"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
@@ -40,11 +38,9 @@
         android:id="@+id/linearLayout2"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginTop="20dp"
-        android:layout_marginBottom="20dp"
+        android:layout_marginTop="30dp"
         android:background="#FFFFFF"
         android:orientation="vertical"
-        app:layout_constraintBottom_toTopOf="@+id/hasaccounttxt"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/textView22">
@@ -88,8 +84,10 @@
             <LinearLayout
                 android:id="@+id/signupuser_layout"
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_margin="30dp"
+                android:layout_height="match_parent"
+                android:layout_marginStart="15dp"
+                android:layout_marginTop="15dp"
+                android:layout_marginEnd="15dp"
                 android:orientation="vertical"
                 android:visibility="visible"
                 tools:visibility="visible">
@@ -99,9 +97,13 @@
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_marginBottom="10dp"
+                    android:background="@drawable/cart_background"
+                    android:elevation="3dp"
                     android:ems="10"
                     android:hint="Your name"
                     android:inputType="textPersonName"
+                    android:padding="12dp"
+                    android:paddingStart="16dp"
                     android:textSize="20sp" />
 
                 <EditText
@@ -109,9 +111,13 @@
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_marginBottom="10dp"
+                    android:background="@drawable/cart_background"
+                    android:elevation="3dp"
                     android:ems="10"
                     android:hint="Enter your phone number"
                     android:inputType="number"
+                    android:padding="12dp"
+                    android:paddingStart="16dp"
                     android:textSize="20sp" />
 
                 <EditText
@@ -119,9 +125,13 @@
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_marginBottom="10dp"
+                    android:background="@drawable/cart_background"
+                    android:elevation="3dp"
                     android:ems="10"
                     android:hint="Enter your email"
                     android:inputType="textEmailAddress"
+                    android:padding="12dp"
+                    android:paddingStart="16dp"
                     android:textSize="20sp" />
 
                 <EditText
@@ -129,9 +139,13 @@
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_marginBottom="10dp"
+                    android:background="@drawable/cart_background"
+                    android:elevation="3dp"
                     android:ems="10"
                     android:hint="Password"
                     android:inputType="textPassword"
+                    android:padding="12dp"
+                    android:paddingStart="16dp"
                     android:textSize="20sp" />
 
                 <EditText
@@ -139,9 +153,13 @@
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_marginBottom="10dp"
+                    android:background="@drawable/cart_background"
+                    android:elevation="3dp"
                     android:ems="10"
                     android:hint="Confirm password"
                     android:inputType="textPassword"
+                    android:padding="12dp"
+                    android:paddingStart="16dp"
                     android:textSize="20sp" />
 
                 <Button
@@ -158,10 +176,11 @@
                 android:id="@+id/loginuser_layout"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_margin="30dp"
+                android:layout_marginStart="15dp"
+                android:layout_marginTop="15dp"
                 android:orientation="vertical"
-                android:visibility="visible"
-                tools:visibility="visible">
+                android:visibility="gone"
+                tools:visibility="gone">
 
 
                 <EditText
@@ -169,18 +188,34 @@
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_marginBottom="10dp"
+                    android:background="@drawable/cart_background"
+                    android:elevation="3dp"
                     android:ems="10"
                     android:hint="Enter your email"
-                    android:inputType="textEmailAddress" />
+                    android:inputType="textEmailAddress"
+                    android:padding="12dp"
+                    android:paddingStart="16dp" />
 
                 <EditText
                     android:id="@+id/login_password"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_marginBottom="10dp"
+                    android:background="@drawable/cart_background"
+                    android:elevation="3dp"
                     android:ems="10"
                     android:hint="Password"
-                    android:inputType="textPassword" />
+                    android:inputType="textPassword"
+                    android:padding="12dp"
+                    android:paddingStart="16dp" />
+
+                <Button
+                    android:id="@+id/login_user_btn"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:fontFamily="@font/ubuntu_bold"
+                    android:text="Login"
+                    android:textSize="18sp" />
 
             </LinearLayout>
         </LinearLayout>
@@ -196,14 +231,16 @@
         android:text="Already have an account?"
         android:textColor="#FF8A1E"
         android:textSize="18sp"
+
         android:visibility="visible"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.497"
-        app:layout_constraintStart_toStartOf="parent" />
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/linearLayout2" />
 
     <TextView
-        android:id="@+id/textView31"
+        android:id="@+id/donthaveacc"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:fontFamily="@font/ubuntu_bold"
@@ -216,6 +253,6 @@
         app:layout_constraintHorizontal_bias="0.497"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/linearLayout2"
-        app:layout_constraintVertical_bias="0.368"/>
+        app:layout_constraintVertical_bias="0.108" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
