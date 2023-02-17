@@ -1,5 +1,7 @@
 package com.example.fooddeliveryapp;
 
+import static android.view.View.GONE;
+
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.constraintlayout.widget.ConstraintLayout;
@@ -8,6 +10,7 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.LinearLayout;
+import android.widget.ProgressBar;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -29,6 +32,8 @@ public class profile extends AppCompatActivity {
     private DatabaseReference databaseReference;
     private String userId;
 
+    ProgressBar progressBar;
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -39,6 +44,8 @@ public class profile extends AppCompatActivity {
         user = FirebaseAuth.getInstance().getCurrentUser();
         databaseReference = FirebaseDatabase.getInstance().getReference("users");
         userId = user.getUid();
+
+        progressBar = findViewById(R.id.progressBarLogout);
 
         final TextView name_display = (TextView) findViewById(R.id.name_display);
         final TextView email_display = (TextView) findViewById(R.id.email_display);
@@ -67,12 +74,15 @@ public class profile extends AppCompatActivity {
             }
         });
 
-
         logout.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+                progressBar.setVisibility(View.VISIBLE);
+
                 FirebaseAuth.getInstance().signOut();
+                progressBar.setVisibility(GONE);
                 startActivity(new Intent(profile.this, register_user.class));
+
             }
         });
 

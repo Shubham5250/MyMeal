@@ -5,7 +5,10 @@ import static android.view.View.GONE;
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.app.Activity;
 import android.app.ProgressDialog;
+import android.content.Context;
+import android.content.ContextWrapper;
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.os.Bundle;
@@ -130,13 +133,14 @@ public class register_user extends AppCompatActivity {
         signup_btn_register.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-//                SharedPreferences sharedPreferences = getSharedPreferences(register_user.PREFS_NAME,0);
-//                SharedPreferences.Editor editor = sharedPreferences.edit();
-//
-//                editor.putBoolean("hasRegistered",true);
-//                editor.apply();
-//                finish();
+                SharedPreferences sharedPreferences = getSharedPreferences(register_user.PREFS_NAME,0);
+                SharedPreferences.Editor editor = sharedPreferences.edit();
+
+                editor.putBoolean("hasRegistered",true);
+                editor.apply();
                 registerUser();
+
+
             }
         });
 
@@ -144,13 +148,13 @@ public class register_user extends AppCompatActivity {
             @Override
             public void onClick(View v) {
 
-//                SharedPreferences sharedPreferences = getSharedPreferences(register_user.PREF_NAME,0);
-//                SharedPreferences.Editor editor = sharedPreferences.edit();
-//
-//                editor.putBoolean("hasLoggedIn",true);
-//                editor.apply();
-//                finish();
+                SharedPreferences sharedPreferences = getSharedPreferences(register_user.PREF_NAME,0);
+                SharedPreferences.Editor editor = sharedPreferences.edit();
+
+                editor.putBoolean("hasLoggedIn",true);
+                editor.apply();
                 loginUser();
+
             }
         });
     }
@@ -221,10 +225,7 @@ public class register_user extends AppCompatActivity {
         // and send that object to the firebase
 
         // mAuth is an object for firebase authentication
-        progressDialog.setMessage("Please while we register you!");
-        progressDialog.setTitle("Authorizing...");
-        progressDialog.setCanceledOnTouchOutside(true);
-        progressDialog.show();
+
         mAuth.createUserWithEmailAndPassword(user_email, user_password)
 
                 .addOnCompleteListener(new OnCompleteListener<AuthResult>() {       // check if user has been already registered
@@ -237,27 +238,31 @@ public class register_user extends AppCompatActivity {
                             // firebase database object
                             // users => collection of objects
                             // add realtime database to your project
+                            progressDialog.setMessage("Please while we register you!");
+                            progressDialog.setTitle("Authorizing...");
+                            progressDialog.setCanceledOnTouchOutside(true);
+                            progressDialog.show();
                             FirebaseDatabase.getInstance().getReference("users")
                                     .child(FirebaseAuth.getInstance().getCurrentUser().getUid())      //we get the registered users id and set it here, so that we can correspond this object(i.e user) to the registered user
                                     .setValue(user).addOnCompleteListener(new OnCompleteListener<Void>() {
                                         @Override
-                                        public void onComplete(@NonNull Task<Void> task) {
+                                        public void onComplete(@NonNull Task<Void> task2) {
 
-                                            if(task.isSuccessful()){
-                                                progressDialog.dismiss();
+                                            if(task2.isSuccessful()){
+                                                hideProgress();
                                                 sendUserToNextActivity();
-                                                Toast.makeText(register_user.this, "Registration Successful", Toast.LENGTH_SHORT).show();
                                             }
                                             else{
-                                                progressDialog.dismiss();
-                                                Toast.makeText(register_user.this, ""+task.getException(), Toast.LENGTH_SHORT).show();
+
+                                                hideProgress();
+                                                Toast.makeText(register_user.this, ""+task2.getException(), Toast.LENGTH_SHORT).show();
                                             }
                                         }
                                     });
                         }
                         else{
 
-                            progressDialog.dismiss();
+                            hideProgress();
                             Toast.makeText(register_user.this, ""+task.getException(), Toast.LENGTH_SHORT).show();
                         }
                     }
@@ -300,12 +305,16 @@ public class register_user extends AppCompatActivity {
             @Override
             public void onComplete(@NonNull Task<AuthResult> task1) {
                 if(task1.isSuccessful()){
-                    progressDialogLogin.dismiss();
+
+
+
+
+                    hideProgressLogin();
                     sendUserToNextActivity();
 
                 }
                 else{
-                    progressDialogLogin.dismiss();
+                    hideProgressLogin();
                     Toast.makeText(register_user.this, ""+task1.getException(), Toast.LENGTH_SHORT).show();
 
                 }
@@ -322,5 +331,47 @@ public class register_user extends AppCompatActivity {
         i.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TASK|Intent.FLAG_ACTIVITY_NEW_TASK);
         startActivity(i);
     }
+
+
+    public void hideProgress() {
+        if(progressDialog != null) {
+            if(progressDialog.isShowing()) { //check if dialog is showing.
+
+                //get the Context object that was used to great the dialog
+                Context context = ((ContextWrapper)progressDialog.getContext()).getBaseContext();
+
+                //if the Context used here was an activity AND it hasn't been finished or destroyed
+                //then dismiss it
+                if(context instanceof Activity) {
+                    if(!((Activity)context).isFinishing() && !((Activity)context).isDestroyed())
+                        progressDialog.dismiss();
+                } else //if the Context used wasnt an Activity, then dismiss it too
+                    progressDialog.dismiss();
+            }
+            progressDialog = null;
+        }
+    }
+
+
+
+    public void hideProgressLogin() {
+        if(progressDialogLogin != null) {
+            if(progressDialogLogin.isShowing()) { //check if dialog is showing.
+
+                //get the Context object that was used to great the dialog
+                Context context = ((ContextWrapper)progressDialogLogin.getContext()).getBaseContext();
+
+                //if the Context used here was an activity AND it hasn't been finished or destroyed
+                //then dismiss it
+                if(context instanceof Activity) {
+                    if(!((Activity)context).isFinishing() && !((Activity)context).isDestroyed())
+                        progressDialogLogin.dismiss();
+                } else //if the Context used wasnt an Activity, then dismiss it too
+                    progressDialogLogin.dismiss();
+            }
+            progressDialogLogin = null;
+        }
+    }
+
 
 }
