@@ -3,9 +3,11 @@ package com.example.fooddeliveryapp;
 import static android.view.View.GONE;
 
 import androidx.annotation.NonNull;
+import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.constraintlayout.widget.ConstraintLayout;
 
+import android.content.DialogInterface;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
@@ -27,13 +29,13 @@ import com.google.firebase.database.ValueEventListener;
 public class profile extends AppCompatActivity {
 
     ConstraintLayout logout;
-
     private FirebaseUser user;
     private DatabaseReference databaseReference;
     private String userId;
-
+    ConstraintLayout privacyPolicy, contactUs;
     ProgressBar progressBar;
 
+    AlertDialog.Builder builder;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -46,12 +48,18 @@ public class profile extends AppCompatActivity {
         userId = user.getUid();
 
         progressBar = findViewById(R.id.progressBarLogout);
+        privacyPolicy = findViewById(R.id.privacyPolicy);
+        contactUs = findViewById(R.id.contactUs);
+
+        builder = new AlertDialog.Builder(this);
+
+
 
         final TextView name_display = (TextView) findViewById(R.id.name_display);
         final TextView email_display = (TextView) findViewById(R.id.email_display);
         final TextView phone_display = (TextView) findViewById(R.id.phone_display);
 
-        databaseReference.child(userId).addListenerForSingleValueEvent(new ValueEventListener() {
+        databaseReference.child(String.valueOf(userId)).addListenerForSingleValueEvent(new ValueEventListener() {
             @Override
             public void onDataChange(@NonNull DataSnapshot snapshot) {
                 user userProfile = snapshot.getValue(user.class);
@@ -77,15 +85,53 @@ public class profile extends AppCompatActivity {
         logout.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                progressBar.setVisibility(View.VISIBLE);
 
-                FirebaseAuth.getInstance().signOut();
-                progressBar.setVisibility(GONE);
-                startActivity(new Intent(profile.this, register_user.class));
+                builder.setMessage("Are you sure you want to Logout?")
+                                .setCancelable(false)
+                                .setPositiveButton("Yes", new DialogInterface.OnClickListener()
+                                {
+                                    @Override
+                                            public void onClick(DialogInterface dialog, int which) {
+                                        progressBar.setVisibility(View.VISIBLE);
+                                        FirebaseAuth.getInstance().signOut();
+                                        startActivity(new Intent(profile.this, MainActivity.class));
+                                        progressBar.setVisibility(GONE);
+
+                                            }
+                                        })
+
+                        .setNegativeButton("No", new DialogInterface.OnClickListener() {
+                            @Override
+                            public void onClick(DialogInterface dialog, int which) {
+                                dialog.cancel();
+                            }
+                        });
+
+                AlertDialog alertDialog = builder.create();
+                alertDialog.show();
+
+
+//                FirebaseAuth.getInstance().signOut();
+//                startActivity(new Intent(profile.this, MainActivity.class));
 
             }
         });
 
+        privacyPolicy.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                BottomSheetFragment bottomSheetFragment = new BottomSheetFragment();
+                bottomSheetFragment.show(getSupportFragmentManager(), bottomSheetFragment.getTag());
+            }
+        });
+
+        contactUs.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                ContactUsBottomSheetFragment bottomSheetFragment = new ContactUsBottomSheetFragment();
+                bottomSheetFragment.show(getSupportFragmentManager(), bottomSheetFragment.getTag());
+            }
+        });
 
         FloatingActionButton floatingActionButton = findViewById(R.id.cartPng);
         LinearLayout homeBtn = findViewById(R.id.homebtn);
@@ -127,4 +173,5 @@ public class profile extends AppCompatActivity {
 
 
     }
+
 }

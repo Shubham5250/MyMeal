@@ -4,4 +4,6 @@
     <string name="subhead"><![CDATA[Get your favourite food & drinks now!]]></string>
     <string name="get_started">Get started</string>
     <string name="home_offer">just at <strike>159/-</strike> 99/- !!</string>
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
 </resources>

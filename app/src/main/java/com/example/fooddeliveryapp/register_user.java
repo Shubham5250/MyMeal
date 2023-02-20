@@ -140,7 +140,6 @@ public class register_user extends AppCompatActivity {
                 editor.apply();
                 registerUser();
 
-
             }
         });
 

@@ -32,30 +32,30 @@ public class MainActivity2 extends AppCompatActivity {
     private RecyclerView.Adapter adapter;
     private RecyclerView recyclerViewCategoryList,recyclerViewPopularList;
 
-    private FirebaseUser user;
     private DatabaseReference databaseReference;
-    private String userId;
 
     TextView welcometxt;
+    private FirebaseUser user;
+    private String userId;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main2);
-
         welcometxt = findViewById(R.id.welcometxt);
-
         user = FirebaseAuth.getInstance().getCurrentUser();
-        databaseReference = FirebaseDatabase.getInstance().getReference("users");
         userId = user.getUid();
 
+        databaseReference = FirebaseDatabase.getInstance().getReference("users");
 
-        databaseReference.child(userId).addListenerForSingleValueEvent(new ValueEventListener() {
+
+        databaseReference.child(String.valueOf(userId)).addListenerForSingleValueEvent(new ValueEventListener() {
             @Override
             public void onDataChange(@NonNull DataSnapshot snapshot) {
                 user userProfile = snapshot.getValue(user.class);
 
                 if(userProfile != null){
+
                     String name = userProfile.user_name;
 
                     welcometxt.setText("Hi, " + name);
@@ -68,11 +68,32 @@ public class MainActivity2 extends AppCompatActivity {
 
             }
         });
+
+//        FirebaseUser user = FirebaseAuth.getInstance().getCurrentUser();
+//        if (user != null) {
+//            // Name, email address, and profile photo Url
+//            String name = user.getDisplayName();
+//
+//            // Check if user's email is verified
+//
+//            // The user's ID, unique to the Firebase project. Do NOT use this value to
+//            // authenticate with your backend server, if you have one. Use
+//            // FirebaseUser.getIdToken() instead.
+//            String uid = user.getUid();
+//                                welcometxt.setText("Hi, " + name);
+//
+//        }
+
         // ========  Calling the functions declared in the class  =======
         recyclerViewCategoryList();
         recyclerViewPopularList();
         bottomNavigation();
     }
+
+
+
+
+
 
 
     // ========  Bottom Navigation Menu Intent Activity  =======

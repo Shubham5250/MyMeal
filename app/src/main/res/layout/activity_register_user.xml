@@ -100,6 +100,7 @@
                     android:background="@drawable/cart_background"
                     android:elevation="3dp"
                     android:ems="10"
+                    android:fontFamily="@font/roboto_medium"
                     android:hint="Your name"
                     android:inputType="textPersonName"
                     android:padding="12dp"
@@ -114,11 +115,12 @@
                     android:background="@drawable/cart_background"
                     android:elevation="3dp"
                     android:ems="10"
+                    android:fontFamily="@font/roboto_medium"
                     android:hint="Enter your phone number"
                     android:inputType="number"
+                    android:maxLength="10"
                     android:padding="12dp"
                     android:paddingStart="16dp"
-                    android:maxLength="10"
                     android:textSize="20sp" />
 
                 <EditText
@@ -129,6 +131,7 @@
                     android:background="@drawable/cart_background"
                     android:elevation="3dp"
                     android:ems="10"
+                    android:fontFamily="@font/roboto_medium"
                     android:hint="Enter your email"
                     android:inputType="textEmailAddress"
                     android:padding="12dp"
@@ -143,6 +146,7 @@
                     android:background="@drawable/cart_background"
                     android:elevation="3dp"
                     android:ems="10"
+                    android:fontFamily="@font/roboto_medium"
                     android:hint="Password"
                     android:inputType="textPassword"
                     android:padding="12dp"
@@ -157,6 +161,7 @@
                     android:background="@drawable/cart_background"
                     android:elevation="3dp"
                     android:ems="10"
+                    android:fontFamily="@font/roboto_medium"
                     android:hint="Confirm password"
                     android:inputType="textPassword"
                     android:padding="12dp"
@@ -167,11 +172,12 @@
                     android:id="@+id/signup_btn_register"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
+                    android:elevation="4dp"
+                    android:fontFamily="@font/ubuntu_bold"
                     android:paddingTop="8dp"
                     android:paddingBottom="8dp"
                     android:text="sign up"
-                    android:textSize="20sp"
-                    android:elevation="4dp"/>
+                    android:textSize="20sp" />
             </LinearLayout>
 
             <LinearLayout
@@ -194,6 +200,7 @@
                     android:background="@drawable/cart_background"
                     android:elevation="3dp"
                     android:ems="10"
+                    android:fontFamily="@font/roboto_medium"
                     android:hint="Enter your email"
                     android:inputType="textEmailAddress"
                     android:padding="12dp"
@@ -207,6 +214,7 @@
                     android:background="@drawable/cart_background"
                     android:elevation="3dp"
                     android:ems="10"
+                    android:fontFamily="@font/roboto_medium"
                     android:hint="Password"
                     android:inputType="textPassword"
                     android:padding="12dp"

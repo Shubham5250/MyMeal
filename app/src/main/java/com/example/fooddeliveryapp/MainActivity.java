@@ -15,75 +15,56 @@ import com.blogspot.atifsoftwares.animatoolib.Animatoo;
 
 public class MainActivity extends AppCompatActivity {
 
-    Button getStarted;
-
+    private static int SPLASH_TIME_OUT = 900;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_intro);
 
-        getStarted = findViewById(R.id.getStarted);
 
-        new Handler().post(new Runnable() {
+
+        new Handler().postDelayed(new Runnable() {
             @Override
             public void run() {
                 SharedPreferences sharedPreferences = getSharedPreferences(register_user.PREFS_NAME,0);
                 boolean hasRegistered = sharedPreferences.getBoolean("hasRegistered",false);
 
+
+                Intent i;
                 if(hasRegistered){
-                    getStarted.setOnClickListener(new View.OnClickListener() {
-                        @Override
-                        public void onClick(View v) {
-                            Intent intent = new Intent(MainActivity.this, MainActivity2.class);
-                            startActivity(intent);
-                            finish();
-                        }
-                    });
+
+                    i = new Intent(MainActivity.this, MainActivity2.class);
+
                 }
                 else{
-                    getStarted.setOnClickListener(new View.OnClickListener() {
-                        @Override
-                        public void onClick(View v) {
-                            Intent intent = new Intent(MainActivity.this, register_user.class);
-                            startActivity(intent);
-                            finish();
-
-                        }
-                    });
+                    i = new Intent(MainActivity.this, register_user.class);
                 }
+                startActivity(i);
+                finish();
             }
-        });
-
-        new Handler().post(new Runnable() {
+        }, SPLASH_TIME_OUT);
+        new Handler().postDelayed(new Runnable() {
             @Override
             public void run() {
                 SharedPreferences sharedPreferences = getSharedPreferences(register_user.PREF_NAME,0);
                 boolean hasLoggedIn = sharedPreferences.getBoolean("hasLoggedIn",false);
 
-                if(hasLoggedIn){
-                    getStarted.setOnClickListener(new View.OnClickListener() {
-                        @Override
-                        public void onClick(View v) {
-                            Intent intent = new Intent(MainActivity.this, MainActivity2.class);
-                            startActivity(intent);
-                            finish();
 
-                        }
-                    });
+                Intent i;
+                if(hasLoggedIn){
+
+                    i = new Intent(MainActivity.this, MainActivity2.class);
+
                 }
                 else{
-                    getStarted.setOnClickListener(new View.OnClickListener() {
-                        @Override
-                        public void onClick(View v) {
-                            Intent intent = new Intent(MainActivity.this, register_user.class);
-                            startActivity(intent);
-                            finish();
-
-                        }
-                    });
+                    i = new Intent(MainActivity.this, register_user.class);
                 }
+                startActivity(i);
+                finish();
             }
-        });
+        }, SPLASH_TIME_OUT);
+
+
     }
 //
 
