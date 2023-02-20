@@ -143,7 +143,6 @@ public class profile extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 startActivity(new Intent(profile.this, CartList.class));
-                Animatoo.INSTANCE.animateZoom(profile.this);
             }
         });
 
@@ -160,7 +159,6 @@ public class profile extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 startActivity(new Intent(profile.this, info_activity.class));
-                Animatoo.INSTANCE.animateShrink(profile.this);
             }
         });
 

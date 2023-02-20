@@ -138,7 +138,6 @@ public class info_activity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 startActivity(new Intent(info_activity.this, MainActivity2.class));
-                Animatoo.INSTANCE.animateShrink(info_activity.this);
             }
         });
 
@@ -146,7 +145,6 @@ public class info_activity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 startActivity(new Intent(info_activity.this, info_activity.class));
-                Animatoo.INSTANCE.animateShrink(info_activity.this);
             }
         });
 

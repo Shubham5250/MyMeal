@@ -17,6 +17,7 @@
         app:layout_constraintTop_toTopOf="parent">
 
         <LinearLayout
+            android:id="@+id/cart_list_linear_layout"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:orientation="vertical">
@@ -62,6 +63,7 @@
                     android:text="₹0"
                     android:textAlignment="viewEnd"
 
+                    android:textColor="#161515"
                     android:textSize="18sp" />
             </LinearLayout>
 
@@ -91,6 +93,7 @@
                     android:text="₹0"
                     android:textAlignment="viewEnd"
 
+                    android:textColor="#161515"
                     android:textSize="18sp" />
             </LinearLayout>
 
@@ -120,6 +123,7 @@
                     android:text="₹0"
                     android:textAlignment="viewEnd"
 
+                    android:textColor="#161515"
                     android:textSize="18sp" />
             </LinearLayout>
 
@@ -148,6 +152,7 @@
                     android:paddingEnd="40dp"
                     android:text="₹0"
                     android:textAlignment="viewEnd"
+                    android:textColor="#161515"
                     android:textSize="18sp" />
             </LinearLayout>
 
@@ -175,11 +180,13 @@
                     android:layout_height="wrap_content"
                     android:layout_marginTop="20dp"
                     android:layout_weight="1"
+                    android:fontFamily="@font/ubuntu_bold"
+
                     android:paddingEnd="40dp"
 
                     android:text="₹0"
-
                     android:textAlignment="viewEnd"
+                    android:textColor="#34C90A"
                     android:textSize="24sp" />
 
             </LinearLayout>
@@ -207,8 +214,10 @@
         android:id="@+id/emptyTxt"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:fontFamily="@font/ubuntu_bold"
         android:text="Your cart is empty!"
         android:textAlignment="center"
+        android:textColor="#161515"
         android:textSize="16sp"
         android:visibility="visible"
         app:layout_constraintBottom_toBottomOf="parent"

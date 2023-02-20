@@ -24,7 +24,8 @@ public class CartList extends AppCompatActivity {
     private ManagementCart managementCart;
     TextView totalItemFee, discountText, taxText, deliveryChargesText,totalText,emptyTxt;
     private double tax;
-    private ScrollView scrollView3;
+    ScrollView scrollView3;
+
 
 
     @Override
@@ -46,6 +47,7 @@ public class CartList extends AppCompatActivity {
         FloatingActionButton floatingActionButton = findViewById(R.id.cartPng);
         LinearLayout homeBtn = findViewById(R.id.homebtn);
         LinearLayout infobtn = findViewById(R.id.infobtn);
+        LinearLayout profilebtn = findViewById(R.id.profilebtn);
 
 
 
@@ -60,7 +62,6 @@ public class CartList extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 startActivity(new Intent(CartList.this, MainActivity2.class));
-                Animatoo.INSTANCE.animateShrink(CartList.this);
             }
         });
 
@@ -68,7 +69,13 @@ public class CartList extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 startActivity(new Intent(CartList.this, info_activity.class));
-                Animatoo.INSTANCE.animateShrink(CartList.this);
+            }
+        });
+
+        profilebtn.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                startActivity(new Intent(CartList.this, profile.class));
             }
         });
     }

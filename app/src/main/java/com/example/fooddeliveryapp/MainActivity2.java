@@ -4,9 +4,11 @@ import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
+import androidx.viewpager2.widget.ViewPager2;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.os.Handler;
 import android.view.View;
 import android.widget.LinearLayout;
 import android.widget.TextView;
@@ -14,6 +16,7 @@ import android.widget.TextView;
 import com.blogspot.atifsoftwares.animatoolib.Animatoo;
 import com.example.fooddeliveryapp.Adaptor.CategoryAdaptor;
 import com.example.fooddeliveryapp.Adaptor.PopularAdaptor;
+import com.example.fooddeliveryapp.Adaptor.SliderAdapter;
 import com.example.fooddeliveryapp.Domain.CategoryDomain;
 import com.example.fooddeliveryapp.Domain.FoodDomain;
 import com.google.android.material.floatingactionbutton.FloatingActionButton;
@@ -26,6 +29,7 @@ import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.ValueEventListener;
 
 import java.util.ArrayList;
+import java.util.List;
 
 public class MainActivity2 extends AppCompatActivity {
 
@@ -33,6 +37,9 @@ public class MainActivity2 extends AppCompatActivity {
     private RecyclerView recyclerViewCategoryList,recyclerViewPopularList;
 
     private DatabaseReference databaseReference;
+
+    private ViewPager2 viewPager2;
+    private Handler sliderHandler = new Handler();
 
     TextView welcometxt;
     private FirebaseUser user;
@@ -42,6 +49,8 @@ public class MainActivity2 extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main2);
+
+        viewPager2 = findViewById(R.id.viewPagerImageSlider);
         welcometxt = findViewById(R.id.welcometxt);
         user = FirebaseAuth.getInstance().getCurrentUser();
         userId = user.getUid();
@@ -69,6 +78,32 @@ public class MainActivity2 extends AppCompatActivity {
             }
         });
 
+
+        List<SliderItem> sliderItems = new ArrayList<>();
+
+        sliderItems.add(new SliderItem(R.drawable.newuser));
+        sliderItems.add(new SliderItem(R.drawable.dealofday));
+        sliderItems.add(new SliderItem(R.drawable.restomania));
+        sliderItems.add(new SliderItem(R.drawable.specialoffer));
+        sliderItems.add(new SliderItem(R.drawable.refer));
+
+
+        viewPager2.setAdapter(new SliderAdapter(sliderItems,viewPager2));
+
+        viewPager2.setClipToPadding(false);
+        viewPager2.setClipChildren(false);
+        viewPager2.setOffscreenPageLimit(3);
+        viewPager2.getChildAt(0).setOverScrollMode(RecyclerView.OVER_SCROLL_NEVER);
+
+
+        viewPager2.registerOnPageChangeCallback(new ViewPager2.OnPageChangeCallback() {
+            @Override
+            public void onPageSelected(int position) {
+                super.onPageSelected(position);
+                sliderHandler.removeCallbacks(SliderRunnable);
+                sliderHandler.postDelayed(SliderRunnable,2500);
+            }
+        });
 //        FirebaseUser user = FirebaseAuth.getInstance().getCurrentUser();
 //        if (user != null) {
 //            // Name, email address, and profile photo Url
@@ -125,7 +160,6 @@ public class MainActivity2 extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 startActivity(new Intent(MainActivity2.this, info_activity.class));
-                Animatoo.INSTANCE.animateShrink(MainActivity2.this);
             }
         });
 
@@ -183,6 +217,7 @@ public class MainActivity2 extends AppCompatActivity {
         popularList.add(new FoodDomain("Cheese Burger", "cheese_burger","A cheeseburger is a hamburger topped with cheese. Traditionally, the slice of cheese is placed on top of the meat patty. The cheese is usually added to the cooking hamburger patty shortly before serving, which allows the cheese to melt.", 99.00));
         popularList.add(new FoodDomain("Vegetable Pizza", "vegetable_pizza",
                 "Fresh tomatoes, onions, arugula, kale, eggplants, bell peppers, spinach, zucchini, mushrooms and more. They all make flavorsome vegetarian pizza toppings. ", 109.00));
+        popularList.add(new FoodDomain("Garlic Bread", "garlic_bread_popular", "Garlic bread consists of bread, topped with garlic and olive oil or butter and may include additional herbs, such as oregano or chives. It is then either grilled until toasted or baked in a conventional or bread oven.", 79.00));
 
         // === Adapter acts as a bridge between the UI component(ListView , GridView) and data sources(ArrayList, HashMap) ===
         adapter = new PopularAdaptor(popularList);
@@ -191,5 +226,22 @@ public class MainActivity2 extends AppCompatActivity {
 
     }
 
+    private Runnable SliderRunnable = new Runnable() {
+        @Override
+        public void run() {
+            viewPager2.setCurrentItem(viewPager2.getCurrentItem() + 1);
+        }
+    };
 
+    @Override
+    protected void onPause() {
+        super.onPause();
+        sliderHandler.removeCallbacks(SliderRunnable);
+    }
+
+    @Override
+    protected void onResume() {
+        super.onResume();
+        sliderHandler.postDelayed(SliderRunnable, 2500);
+    }
 }

@@ -148,7 +148,7 @@
                         android:layout_height="wrap_content"
                         android:layout_marginTop="1dp"
                         android:text="@string/home_offer"
-                        android:textColor="#166610"
+                        android:textColor="#1AA210"
                         android:textSize="12sp"
                         android:textStyle="bold"
                         app:layout_constraintEnd_toEndOf="parent"
@@ -162,7 +162,7 @@
                         android:layout_height="wrap_content"
                         android:layout_marginBottom="21dp"
                         android:text="Offer ending soon!"
-                        android:textColor="#166610"
+                        android:textColor="#1AA210"
                         android:textSize="12sp"
                         android:textStyle="bold"
                         app:layout_constraintBottom_toBottomOf="parent"
@@ -232,6 +232,7 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_marginStart="32dp"
+                    android:layout_marginTop="16dp"
                     android:layout_marginEnd="275dp"
                     android:fontFamily="@font/ubuntu_bold"
                     android:text="Popular"
@@ -240,7 +241,18 @@
                     app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintHorizontal_bias="0.0"
                     app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toBottomOf="@+id/recyclerView" />
+                    app:layout_constraintTop_toBottomOf="@+id/viewPagerImageSlider" />
+
+                <androidx.viewpager2.widget.ViewPager2
+                    android:id="@+id/viewPagerImageSlider"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:layout_marginStart="14dp"
+                    android:layout_marginTop="10dp"
+                    android:layout_marginEnd="14dp"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/textView34" />
 
                 <androidx.recyclerview.widget.RecyclerView
                     android:id="@+id/recycleView2"
@@ -248,10 +260,14 @@
                     android:layout_height="match_parent"
                     android:layout_marginStart="14dp"
                     android:layout_marginEnd="14dp"
+                    android:layout_marginBottom="100dp"
+                    app:layout_constraintBottom_toBottomOf="parent"
                     app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintHorizontal_bias="0.498"
                     app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toBottomOf="@+id/textView4" />
+                    app:layout_constraintTop_toBottomOf="@+id/textView4">
+
+                </androidx.recyclerview.widget.RecyclerView>
 
                 <TextView
                     android:id="@+id/textView34"
@@ -259,21 +275,16 @@
                     android:layout_height="wrap_content"
                     android:layout_marginStart="32dp"
                     android:layout_marginTop="16dp"
-                    android:layout_marginEnd="275dp"
+                    android:layout_marginEnd="288dp"
                     android:fontFamily="@font/ubuntu_bold"
                     android:text="Offers for you"
                     android:textColor="#0E0E0E"
                     android:textSize="16sp"
                     app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintHorizontal_bias="0.0"
                     app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toBottomOf="@+id/recycleView2" />
+                    app:layout_constraintTop_toBottomOf="@+id/recyclerView" />
 
-                <androidx.viewpager2.widget.ViewPager2
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    app:layout_constraintEnd_toEndOf="parent"
-                    app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toBottomOf="@+id/textView34" />
                 <!--                <TextView-->
                 <!--                    android:id="@+id/textView12"-->
                 <!--                    android:layout_width="wrap_content"-->

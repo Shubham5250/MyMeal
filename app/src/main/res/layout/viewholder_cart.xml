@@ -89,8 +89,10 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginEnd="10dp"
+        android:fontFamily="@font/ubuntu_bold"
         android:text="0"
-        android:textColor="#012C5F"
+        android:textColor="#34C90A"
+        android:textSize="16sp"
         app:layout_constraintBottom_toBottomOf="@+id/titleTxt"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toTopOf="@+id/titleTxt" />
@@ -99,20 +101,23 @@
         android:id="@+id/textView24"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginEnd="6dp"
+        android:layout_marginEnd="4dp"
         android:fontFamily="@font/ubuntu_bold"
         android:text="₹"
         android:textColor="#FF8A1E"
         app:layout_constraintBottom_toBottomOf="@+id/feeEachItem"
         app:layout_constraintEnd_toStartOf="@+id/feeEachItem"
-        app:layout_constraintTop_toTopOf="@+id/feeEachItem" />
+        app:layout_constraintTop_toTopOf="@+id/feeEachItem"
+        app:layout_constraintVertical_bias="1.0" />
 
     <TextView
         android:id="@+id/totalFeeEachItem"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:fontFamily="@font/ubuntu_bold"
         android:text="0"
-        android:textColor="#012C5F"
+        android:textColor="#34C90A"
+        android:textSize="16sp"
         app:layout_constraintBottom_toBottomOf="@+id/plusItem"
         app:layout_constraintEnd_toEndOf="@+id/feeEachItem"
         app:layout_constraintTop_toTopOf="@+id/plusItem"
@@ -122,12 +127,13 @@
         android:id="@+id/textView26"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginEnd="6dp"
+        android:layout_marginEnd="4dp"
         android:fontFamily="@font/ubuntu_bold"
         android:text="₹"
         android:textColor="#FF8A1E"
         app:layout_constraintBottom_toBottomOf="@+id/totalFeeEachItem"
         app:layout_constraintEnd_toStartOf="@+id/totalFeeEachItem"
-        app:layout_constraintTop_toTopOf="@+id/totalFeeEachItem" />
+        app:layout_constraintTop_toTopOf="@+id/totalFeeEachItem"
+        app:layout_constraintVertical_bias="1.0" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
