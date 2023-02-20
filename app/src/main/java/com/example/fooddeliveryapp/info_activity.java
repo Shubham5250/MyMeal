@@ -134,12 +134,12 @@ public class info_activity extends AppCompatActivity {
         });
 
 
-        homeBtn.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                startActivity(new Intent(info_activity.this, MainActivity2.class));
-            }
-        });
+//        homeBtn.setOnClickListener(new View.OnClickListener() {
+//            @Override
+//            public void onClick(View v) {
+//                startActivity(new Intent(info_activity.this, MainActivity2.class));
+//            }
+//        });
 
         infobtn.setOnClickListener(new View.OnClickListener() {
             @Override
