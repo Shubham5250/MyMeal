@@ -190,4 +190,6 @@ public class MainActivity2 extends AppCompatActivity {
         // === here it is binding recycleview and arraylist ===
 
     }
+
+
 }
