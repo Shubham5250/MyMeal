@@ -19,6 +19,7 @@ import com.example.fooddeliveryapp.Adaptor.PopularAdaptor;
 import com.example.fooddeliveryapp.Adaptor.SliderAdapter;
 import com.example.fooddeliveryapp.Domain.CategoryDomain;
 import com.example.fooddeliveryapp.Domain.FoodDomain;
+import com.google.android.material.bottomsheet.BottomSheetDialog;
 import com.google.android.material.floatingactionbutton.FloatingActionButton;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
@@ -44,6 +45,7 @@ public class MainActivity2 extends AppCompatActivity {
     TextView welcometxt;
     private FirebaseUser user;
     private String userId;
+    TextView filter_txt;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -78,6 +80,13 @@ public class MainActivity2 extends AppCompatActivity {
             }
         });
 
+        TextView filter_txt = findViewById(R.id.filter_txt);
+        filter_txt.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                showBottomSheetDialogFilter();
+            }
+        });
 
         List<SliderItem> sliderItems = new ArrayList<>();
 
@@ -104,31 +113,28 @@ public class MainActivity2 extends AppCompatActivity {
                 sliderHandler.postDelayed(SliderRunnable,2500);
             }
         });
-//        FirebaseUser user = FirebaseAuth.getInstance().getCurrentUser();
-//        if (user != null) {
-//            // Name, email address, and profile photo Url
-//            String name = user.getDisplayName();
-//
-//            // Check if user's email is verified
-//
-//            // The user's ID, unique to the Firebase project. Do NOT use this value to
-//            // authenticate with your backend server, if you have one. Use
-//            // FirebaseUser.getIdToken() instead.
-//            String uid = user.getUid();
-//                                welcometxt.setText("Hi, " + name);
-//
-//        }
-
         // ========  Calling the functions declared in the class  =======
         recyclerViewCategoryList();
         recyclerViewPopularList();
         bottomNavigation();
+        showBottomSheetDialogFilter();
     }
 
+    private void showBottomSheetDialogFilter() {
 
+        final BottomSheetDialog bottomSheetDialog = new BottomSheetDialog(this);
+        bottomSheetDialog.setContentView(R.layout.filter_bottom_sheet_dialog);
 
+        LinearLayout filter,price_lowHigh,price_highLow,rating_3plus,rating_threeminus,delivery_time;
+//        filter = bottomSheetDialog.findViewById(R.id.filter);
+//        price_lowHigh = bottomSheetDialog.findViewById(R.id.price_lowHigh);
+//        price_highLow = bottomSheetDialog.findViewById(R.id.price_highLow);
+//        rating_3plus = bottomSheetDialog.findViewById(R.id.rating_3plus);
+//        rating_threeminus = bottomSheetDialog.findViewById(R.id.rating_threeminus);
 
+        bottomSheetDialog.show();
 
+    }
 
 
     // ========  Bottom Navigation Menu Intent Activity  =======

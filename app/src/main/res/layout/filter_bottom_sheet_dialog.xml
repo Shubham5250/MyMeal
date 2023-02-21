@@ -1,0 +1,116 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:orientation="vertical"
+    android:padding="6dp">
+
+    <TextView
+        android:id="@+id/filter"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_margin="4dp"
+        android:fontFamily="@font/ubuntu_bold"
+        android:text="Filter"
+        android:textColor="#101010" />
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:id="@+id/price_lowHigh"
+
+        android:orientation="horizontal">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_margin="4dp"
+            android:layout_weight="1"
+            android:drawableEnd="@drawable/ic_outline_circle_24"
+
+            android:paddingEnd="6dp"
+            android:text="Price: Low to High"
+            android:textColor="#2F2D2D" />
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:id="@+id/price_highLow"
+
+        android:orientation="horizontal">
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_margin="4dp"
+            android:layout_weight="1"
+            android:drawableEnd="@drawable/ic_outline_circle_24"
+
+            android:paddingEnd="6dp"
+            android:text="Price: High to Low"
+            android:textColor="#2F2D2D" />
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:id="@+id/rating_3plus"
+
+        android:layout_height="match_parent"
+        android:orientation="horizontal">
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_margin="4dp"
+            android:layout_weight="1"
+            android:drawableEnd="@drawable/ic_outline_circle_24"
+
+            android:paddingEnd="6dp"
+            android:text="Rating: 3+ star"
+            android:textColor="#2F2D2D" />
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:id="@+id/rating_threeminus"
+
+        android:orientation="horizontal">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_margin="4dp"
+            android:layout_weight="1"
+            android:drawableEnd="@drawable/ic_outline_circle_24"
+
+            android:paddingEnd="6dp"
+            android:text="Rating: below 3 star"
+            android:textColor="#2F2D2D" />
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:id="@+id/delivery_time"
+
+        android:orientation="horizontal">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_margin="4dp"
+            android:layout_weight="1"
+            android:drawableEnd="@drawable/ic_outline_circle_24"
+            android:paddingEnd="6dp"
+            android:text="Delivery time"
+            android:textColor="#2F2D2D" />
+
+    </LinearLayout>
+</LinearLayout>

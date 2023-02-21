@@ -79,7 +79,6 @@
                     android:text="MyMeal"
                     android:textColor="#931313"
                     android:textSize="20dp"
-                    android:textStyle="italic"
                     app:layout_constraintBottom_toTopOf="@+id/editTextTextPersonName"
                     app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintTop_toTopOf="parent" />
@@ -126,7 +125,7 @@
                         android:padding="3dp">
 
                         <TextView
-                            android:id="@+id/textView47"
+                            android:id="@+id/filter_txt"
                             android:layout_width="wrap_content"
                             android:layout_height="match_parent"
                             android:layout_margin="3dp"
@@ -166,7 +165,7 @@
                             android:padding="6dp"
                             android:paddingStart="5dp"
                             android:paddingEnd="5dp"
-                            android:text="Restraunts"
+                            android:text="Restaurants"
                             android:textColor="#242222" />
 
                         <TextView
@@ -325,11 +324,10 @@
                     android:layout_marginStart="32dp"
                     android:layout_marginTop="10dp"
                     android:layout_marginEnd="275dp"
-                    android:fontFamily="@font/ubuntu_bold"
+                    android:fontFamily="@font/im_fell_double_pica_sc"
                     android:text="Categories"
                     android:textColor="#0E0E0E"
-                    android:textSize="16sp"
-                    android:textStyle="bold"
+                    android:textSize="18sp"
                     app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintHorizontal_bias="0.0"
                     app:layout_constraintStart_toStartOf="parent"
@@ -357,7 +355,7 @@
                     android:layout_marginStart="32dp"
                     android:layout_marginTop="10dp"
                     android:layout_marginEnd="275dp"
-                    android:fontFamily="@font/ubuntu_bold"
+                    android:fontFamily="@font/im_fell_double_pica_sc"
                     android:text="Popular"
                     android:textColor="#1D1C1C"
                     android:textSize="16sp"
@@ -400,10 +398,10 @@
                     android:layout_marginStart="32dp"
                     android:layout_marginTop="10dp"
                     android:layout_marginEnd="288dp"
-                    android:fontFamily="@font/ubuntu_bold"
+                    android:fontFamily="@font/im_fell_double_pica_sc"
                     android:text="Offers for you"
                     android:textColor="#0E0E0E"
-                    android:textSize="16sp"
+                    android:textSize="18sp"
                     app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintHorizontal_bias="0.0"
                     app:layout_constraintStart_toStartOf="parent"
