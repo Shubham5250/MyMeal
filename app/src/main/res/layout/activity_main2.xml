@@ -6,6 +6,7 @@
     android:layout_height="match_parent"
     android:focusable="true"
     android:focusableInTouchMode="true"
+    android:scrollbars="none"
     tools:context=".MainActivity2">
 
 
@@ -104,17 +105,138 @@
                     app:layout_constraintStart_toStartOf="parent"
                     app:layout_constraintTop_toBottomOf="@+id/textView5" />
 
+                <HorizontalScrollView
+                    android:id="@+id/horizontalScrollView2"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:layout_marginStart="14dp"
+                    android:scrollbars="none"
+
+                    android:layout_marginTop="5dp"
+                    android:layout_marginEnd="14dp"
+
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintHorizontal_bias="1.0"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/editTextTextPersonName">
+
+                    <LinearLayout
+                        android:layout_width="wrap_content"
+                        android:layout_height="match_parent"
+                        android:padding="3dp">
+
+                        <TextView
+                            android:id="@+id/textView47"
+                            android:layout_width="wrap_content"
+                            android:layout_height="match_parent"
+                            android:layout_margin="3dp"
+                            android:background="@drawable/filter_bg"
+                            android:drawableEnd="@drawable/ic_baseline_filter_list_24"
+                            android:elevation="3dp"
+                            android:fontFamily="@font/roboto_medium"
+                            android:padding="6dp"
+                            android:paddingStart="5dp"
+                            android:paddingEnd="5dp"
+                            android:text="Filters"
+                            android:textColor="#242222" />
+
+
+                        <TextView
+                            android:id="@+id/textView49"
+                            android:layout_width="wrap_content"
+                            android:layout_height="match_parent"
+                            android:layout_margin="3dp"
+                            android:layout_weight="1"
+                            android:background="@drawable/filter_bg"
+                            android:drawableStart="@drawable/ic_baseline_discount_24"
+                            android:elevation="3dp"
+                            android:fontFamily="@font/roboto_medium"
+                            android:padding="6dp"
+                            android:text="Offers"
+                            android:textColor="#242222" />
+
+                        <TextView
+                            android:id="@+id/textView43"
+                            android:layout_width="wrap_content"
+                            android:layout_height="match_parent"
+                            android:layout_margin="3dp"
+                            android:background="@drawable/filter_bg"
+                            android:elevation="3dp"
+                            android:fontFamily="@font/roboto_medium"
+                            android:padding="6dp"
+                            android:paddingStart="5dp"
+                            android:paddingEnd="5dp"
+                            android:text="Restraunts"
+                            android:textColor="#242222" />
+
+                        <TextView
+                            android:id="@+id/textView44"
+                            android:layout_width="wrap_content"
+                            android:layout_height="match_parent"
+                            android:layout_margin="3dp"
+                            android:background="@drawable/filter_bg"
+                            android:elevation="3dp"
+                            android:fontFamily="@font/roboto_medium"
+                            android:padding="6dp"
+                            android:text="5 star"
+                            android:textColor="#242222" />
+
+                        <TextView
+                            android:id="@+id/textView45"
+                            android:layout_width="wrap_content"
+                            android:layout_height="match_parent"
+                            android:layout_margin="3dp"
+                            android:layout_weight="1"
+                            android:background="@drawable/filter_bg"
+                            android:drawableStart="@drawable/ic_baseline_delivery_dining_24"
+                            android:elevation="2dp"
+                            android:fontFamily="@font/roboto_medium"
+                            android:padding="6dp"
+                            android:text="Pickup"
+                            android:textColor="#242222" />
+
+                        <TextView
+                            android:id="@+id/textView46"
+                            android:layout_width="wrap_content"
+                            android:layout_height="match_parent"
+                            android:layout_margin="3dp"
+                            android:layout_weight="1"
+                            android:background="@drawable/filter_bg"
+                            android:drawableStart="@drawable/ic_baseline_location_on_24"
+                            android:elevation="3dp"
+                            android:fontFamily="@font/roboto_medium"
+                            android:padding="6dp"
+                            android:text="Near you"
+                            android:textColor="#242222" />
+
+
+                        <TextView
+                            android:id="@+id/textView48"
+                            android:layout_width="wrap_content"
+                            android:layout_height="match_parent"
+                            android:layout_margin="3dp"
+                            android:layout_weight="1"
+                            android:background="@drawable/filter_bg"
+                            android:drawableStart="@drawable/ic_baseline_trending_up_24"
+                            android:elevation="3dp"
+                            android:fontFamily="@font/roboto_medium"
+                            android:padding="6dp"
+                            android:text="Popular"
+                            android:textColor="#242222" />
+                    </LinearLayout>
+                </HorizontalScrollView>
+
                 <androidx.constraintlayout.widget.ConstraintLayout
                     android:id="@+id/constraintLayout"
                     android:layout_width="match_parent"
                     android:layout_height="150dp"
                     android:layout_marginStart="14dp"
-                    android:layout_marginTop="8dp"
+                    android:layout_marginTop="10dp"
                     android:layout_marginEnd="14dp"
                     android:background="@drawable/orange_bg_home"
                     app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toBottomOf="@+id/editTextTextPersonName">
+                    app:layout_constraintTop_toBottomOf="@+id/recyclerView">
 
                     <ImageView
                         android:id="@+id/imageView4"
@@ -201,7 +323,7 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_marginStart="32dp"
-                    android:layout_marginTop="16dp"
+                    android:layout_marginTop="10dp"
                     android:layout_marginEnd="275dp"
                     android:fontFamily="@font/ubuntu_bold"
                     android:text="Categories"
@@ -211,13 +333,14 @@
                     app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintHorizontal_bias="0.0"
                     app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toBottomOf="@+id/constraintLayout" />
+                    app:layout_constraintTop_toBottomOf="@+id/viewPagerImageSlider" />
 
                 <androidx.recyclerview.widget.RecyclerView
                     android:id="@+id/recyclerView"
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
                     android:layout_marginStart="14dp"
+                    android:layout_marginTop="10dp"
                     android:layout_marginEnd="14dp"
                     app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintHorizontal_bias="1.0"
@@ -232,7 +355,7 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_marginStart="32dp"
-                    android:layout_marginTop="16dp"
+                    android:layout_marginTop="10dp"
                     android:layout_marginEnd="275dp"
                     android:fontFamily="@font/ubuntu_bold"
                     android:text="Popular"
@@ -241,7 +364,7 @@
                     app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintHorizontal_bias="0.0"
                     app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toBottomOf="@+id/viewPagerImageSlider" />
+                    app:layout_constraintTop_toBottomOf="@+id/constraintLayout" />
 
                 <androidx.viewpager2.widget.ViewPager2
                     android:id="@+id/viewPagerImageSlider"
@@ -259,6 +382,7 @@
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
                     android:layout_marginStart="14dp"
+                    android:layout_marginTop="10dp"
                     android:layout_marginEnd="14dp"
                     android:layout_marginBottom="100dp"
                     app:layout_constraintBottom_toBottomOf="parent"
@@ -274,7 +398,7 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_marginStart="32dp"
-                    android:layout_marginTop="16dp"
+                    android:layout_marginTop="10dp"
                     android:layout_marginEnd="288dp"
                     android:fontFamily="@font/ubuntu_bold"
                     android:text="Offers for you"
@@ -283,7 +407,7 @@
                     app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintHorizontal_bias="0.0"
                     app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toBottomOf="@+id/recyclerView" />
+                    app:layout_constraintTop_toBottomOf="@+id/horizontalScrollView2" />
 
                 <!--                <TextView-->
                 <!--                    android:id="@+id/textView12"-->
