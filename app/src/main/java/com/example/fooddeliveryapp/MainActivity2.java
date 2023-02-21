@@ -139,12 +139,16 @@ public class MainActivity2 extends AppCompatActivity {
         TextView button = bottomSheetDialog.findViewById(R.id.applybtn);
         TextView clearAll = bottomSheetDialog.findViewById(R.id.clearAll);
 
+
+
         button.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+
                 int radioId = radioGroup.getCheckedRadioButtonId();
                 radioButton = bottomSheetDialog.findViewById(radioId);
-                Toast.makeText(MainActivity2.this, "Applied: "+ radioButton.getText(), Toast.LENGTH_SHORT).show();
+
+
                 bottomSheetDialog.dismiss();
             }
         });
