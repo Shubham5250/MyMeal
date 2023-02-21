@@ -3,114 +3,98 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_marginBottom="10dp"
     android:orientation="vertical"
-    android:padding="6dp">
+    android:padding="6dp"
+    tools:context=".MainActivity2">
 
     <TextView
-        android:id="@+id/filter"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_margin="4dp"
         android:fontFamily="@font/ubuntu_bold"
         android:text="Filter"
-        android:textColor="#101010" />
+        android:textColor="#101010"
+        android:textSize="18sp" />
 
     <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:id="@+id/price_lowHigh"
+        android:layout_height="wrap_content">
 
-        android:orientation="horizontal">
-
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_margin="4dp"
-            android:layout_weight="1"
-            android:drawableEnd="@drawable/ic_outline_circle_24"
-
-            android:paddingEnd="6dp"
-            android:text="Price: Low to High"
-            android:textColor="#2F2D2D" />
-
-    </LinearLayout>
-
-    <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:id="@+id/price_highLow"
-
-        android:orientation="horizontal">
-
-        <TextView
+        <RadioGroup
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_margin="4dp"
-            android:layout_weight="1"
-            android:drawableEnd="@drawable/ic_outline_circle_24"
+            android:layout_height="match_parent"
+            android:layout_gravity="end"
+            android:id="@+id/radioGroup">
 
-            android:paddingEnd="6dp"
-            android:text="Price: High to Low"
-            android:textColor="#2F2D2D" />
+            <RadioButton
+                android:id="@+id/radioButton"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_gravity="right|end"
+                android:text="Price: Low to High"
+                android:onClick="checkButton"/>
 
+            <RadioButton
+                android:id="@+id/radioButton2"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_gravity="end"
+                android:onClick="checkButton"
+                android:text="Price: High to Low" />
+
+            <RadioButton
+                android:id="@+id/radioButton3"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:onClick="checkButton"
+                android:text="Delivery time: Low to High" />
+
+            <RadioButton
+                android:id="@+id/radioButton4"
+                android:onClick="checkButton"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Rating: High to Low" />
+
+            <RadioButton
+                android:id="@+id/radioButton5"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:onClick="checkButton"
+                android:text="Within 1 km" />
+        </RadioGroup>
     </LinearLayout>
 
     <LinearLayout
         android:layout_width="match_parent"
-        android:id="@+id/rating_3plus"
-
-        android:layout_height="match_parent"
+        android:layout_height="wrap_content"
         android:orientation="horizontal">
 
         <TextView
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_margin="4dp"
-            android:layout_weight="1"
-            android:drawableEnd="@drawable/ic_outline_circle_24"
-
-            android:paddingEnd="6dp"
-            android:text="Rating: 3+ star"
-            android:textColor="#2F2D2D" />
-
-    </LinearLayout>
-
-    <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:id="@+id/rating_threeminus"
-
-        android:orientation="horizontal">
-
-        <TextView
+            android:id="@+id/applybtn"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_margin="4dp"
             android:layout_weight="1"
-            android:drawableEnd="@drawable/ic_outline_circle_24"
-
-            android:paddingEnd="6dp"
-            android:text="Rating: below 3 star"
-            android:textColor="#2F2D2D" />
-
-    </LinearLayout>
-
-    <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:id="@+id/delivery_time"
-
-        android:orientation="horizontal">
+            android:background="#FF8A1E"
+            android:fontFamily="@font/ubuntu_bold"
+            android:padding="6dp"
+            android:text="Apply"
+            android:textAlignment="center"
+            android:textColor="#FFFEFE"
+            android:textSize="16sp" />
 
         <TextView
+            android:id="@+id/clearAll"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_margin="4dp"
             android:layout_weight="1"
-            android:drawableEnd="@drawable/ic_outline_circle_24"
-            android:paddingEnd="6dp"
-            android:text="Delivery time"
-            android:textColor="#2F2D2D" />
-
+            android:fontFamily="@font/roboto_medium"
+            android:text="Clear"
+            android:textAlignment="center"
+            android:textColor="#282424"
+            android:textSize="18sp" />
     </LinearLayout>
+
 </LinearLayout>

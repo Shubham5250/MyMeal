@@ -1,5 +1,7 @@
 package com.example.fooddeliveryapp;
 
+import static android.view.View.GONE;
+
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.recyclerview.widget.LinearLayoutManager;
@@ -7,11 +9,16 @@ import androidx.recyclerview.widget.RecyclerView;
 import androidx.viewpager2.widget.ViewPager2;
 
 import android.content.Intent;
+import android.graphics.drawable.Drawable;
 import android.os.Bundle;
 import android.os.Handler;
 import android.view.View;
+import android.widget.Button;
 import android.widget.LinearLayout;
+import android.widget.RadioButton;
+import android.widget.RadioGroup;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import com.blogspot.atifsoftwares.animatoolib.Animatoo;
 import com.example.fooddeliveryapp.Adaptor.CategoryAdaptor;
@@ -45,12 +52,16 @@ public class MainActivity2 extends AppCompatActivity {
     TextView welcometxt;
     private FirebaseUser user;
     private String userId;
-    TextView filter_txt;
+
+
+    RadioGroup radioGroup;
+    RadioButton radioButton;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main2);
+
 
         viewPager2 = findViewById(R.id.viewPagerImageSlider);
         welcometxt = findViewById(R.id.welcometxt);
@@ -117,7 +128,6 @@ public class MainActivity2 extends AppCompatActivity {
         recyclerViewCategoryList();
         recyclerViewPopularList();
         bottomNavigation();
-        showBottomSheetDialogFilter();
     }
 
     private void showBottomSheetDialogFilter() {
@@ -125,18 +135,35 @@ public class MainActivity2 extends AppCompatActivity {
         final BottomSheetDialog bottomSheetDialog = new BottomSheetDialog(this);
         bottomSheetDialog.setContentView(R.layout.filter_bottom_sheet_dialog);
 
-        LinearLayout filter,price_lowHigh,price_highLow,rating_3plus,rating_threeminus,delivery_time;
-//        filter = bottomSheetDialog.findViewById(R.id.filter);
-//        price_lowHigh = bottomSheetDialog.findViewById(R.id.price_lowHigh);
-//        price_highLow = bottomSheetDialog.findViewById(R.id.price_highLow);
-//        rating_3plus = bottomSheetDialog.findViewById(R.id.rating_3plus);
-//        rating_threeminus = bottomSheetDialog.findViewById(R.id.rating_threeminus);
+        radioGroup = bottomSheetDialog.findViewById(R.id.radioGroup);
+        TextView button = bottomSheetDialog.findViewById(R.id.applybtn);
+        TextView clearAll = bottomSheetDialog.findViewById(R.id.clearAll);
 
+        button.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                int radioId = radioGroup.getCheckedRadioButtonId();
+                radioButton = bottomSheetDialog.findViewById(radioId);
+                Toast.makeText(MainActivity2.this, "Applied: "+ radioButton.getText(), Toast.LENGTH_SHORT).show();
+                bottomSheetDialog.dismiss();
+            }
+        });
+
+        clearAll.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                radioGroup.clearCheck();
+            }
+        });
         bottomSheetDialog.show();
 
     }
 
 
+    public void checkButton(View v){
+        int radioId = radioGroup.getCheckedRadioButtonId();
+        radioButton = findViewById(radioId);
+    }
     // ========  Bottom Navigation Menu Intent Activity  =======
     private void bottomNavigation(){
         FloatingActionButton floatingActionButton = findViewById(R.id.cartPng);
