@@ -130,6 +130,7 @@
                             android:layout_height="match_parent"
                             android:layout_margin="3dp"
                             android:background="@drawable/filter_bg"
+                            android:backgroundTint="#FFFFFF"
                             android:drawableEnd="@drawable/ic_baseline_filter_list_24"
                             android:elevation="3dp"
                             android:fontFamily="@font/roboto_medium"
@@ -147,6 +148,7 @@
                             android:layout_margin="3dp"
                             android:layout_weight="1"
                             android:background="@drawable/filter_bg"
+                            android:backgroundTint="#FFFFFF"
                             android:drawableStart="@drawable/ic_baseline_discount_24"
                             android:elevation="3dp"
                             android:fontFamily="@font/roboto_medium"
@@ -160,6 +162,7 @@
                             android:layout_height="match_parent"
                             android:layout_margin="3dp"
                             android:background="@drawable/filter_bg"
+                            android:backgroundTint="#FFFFFF"
                             android:elevation="3dp"
                             android:fontFamily="@font/roboto_medium"
                             android:padding="6dp"
@@ -174,6 +177,7 @@
                             android:layout_height="match_parent"
                             android:layout_margin="3dp"
                             android:background="@drawable/filter_bg"
+                            android:backgroundTint="#FFFFFF"
                             android:elevation="3dp"
                             android:fontFamily="@font/roboto_medium"
                             android:padding="6dp"
@@ -187,6 +191,7 @@
                             android:layout_margin="3dp"
                             android:layout_weight="1"
                             android:background="@drawable/filter_bg"
+                            android:backgroundTint="#FFFFFF"
                             android:drawableStart="@drawable/ic_baseline_delivery_dining_24"
                             android:elevation="2dp"
                             android:fontFamily="@font/roboto_medium"
@@ -201,6 +206,7 @@
                             android:layout_margin="3dp"
                             android:layout_weight="1"
                             android:background="@drawable/filter_bg"
+                            android:backgroundTint="#FFFFFF"
                             android:drawableStart="@drawable/ic_baseline_location_on_24"
                             android:elevation="3dp"
                             android:fontFamily="@font/roboto_medium"
@@ -216,6 +222,7 @@
                             android:layout_margin="3dp"
                             android:layout_weight="1"
                             android:background="@drawable/filter_bg"
+                            android:backgroundTint="#FFFFFF"
                             android:drawableStart="@drawable/ic_baseline_trending_up_24"
                             android:elevation="3dp"
                             android:fontFamily="@font/roboto_medium"
@@ -241,7 +248,7 @@
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_marginStart="32dp"
-                        android:layout_marginTop="10dp"
+                        android:layout_marginTop="5dp"
                         android:fontFamily="@font/im_fell_double_pica_sc"
                         android:text="Offers for you"
                         android:textColor="#444444"
@@ -250,9 +257,9 @@
                     <androidx.viewpager2.widget.ViewPager2
                         android:id="@+id/viewPagerImageSlider"
                         android:layout_width="match_parent"
-                        android:layout_height="212dp"
+                        android:layout_height="217dp"
                         android:layout_marginStart="14dp"
-                        android:layout_marginTop="10dp"
+                        android:layout_marginTop="5dp"
                         android:layout_marginEnd="14dp" />
 
                     <TextView
@@ -260,7 +267,7 @@
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_marginStart="32dp"
-                        android:layout_marginTop="10dp"
+                        android:layout_marginTop="5dp"
                         android:fontFamily="@font/im_fell_double_pica_sc"
                         android:text="Popular"
                         android:textColor="#444444"
@@ -271,7 +278,7 @@
                         android:layout_width="match_parent"
                         android:layout_height="match_parent"
                         android:layout_marginStart="14dp"
-                        android:layout_marginTop="10dp">
+                        android:layout_marginTop="5dp">
 
 
                     </androidx.recyclerview.widget.RecyclerView>
@@ -370,7 +377,7 @@
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_marginStart="32dp"
-                        android:layout_marginTop="10dp"
+                        android:layout_marginTop="5dp"
                         android:layout_marginEnd="275dp"
                         android:fontFamily="@font/im_fell_double_pica_sc"
                         android:text="Categories"
@@ -382,7 +389,7 @@
                         android:layout_width="match_parent"
                         android:layout_height="match_parent"
                         android:layout_marginStart="14dp"
-                        android:layout_marginTop="10dp"
+                        android:layout_marginTop="5dp"
                         android:layout_marginEnd="14dp"
                         android:layout_marginBottom="100dp">
 

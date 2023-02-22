@@ -96,9 +96,19 @@ public class MainActivity2 extends AppCompatActivity {
         });
 
         TextView filter_txt = findViewById(R.id.filter_txt);
+        final int[] checkfilter = {1};
         filter_txt.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+                if(checkfilter[0] ==1 ) {
+                    filter_txt.setBackgroundResource(R.drawable.txt_selector);
+                    checkfilter[0] = 0;
+                }
+                else{
+
+                    filter_txt.setBackgroundResource(R.drawable.filter_bg);
+                    checkfilter[0] =1;
+                }
                 showBottomSheetDialogFilter();
             }
         });
@@ -114,11 +124,13 @@ public class MainActivity2 extends AppCompatActivity {
                 if(check ==1 ) {
                     mainContent.setVisibility(GONE);
                     restaurants_layout.setVisibility(View.VISIBLE);
+                    restaurant_txt.setBackgroundResource(R.drawable.txt_selector);
                     check = 0;
                 }
                 else{
                     mainContent.setVisibility(View.VISIBLE);
                     restaurants_layout.setVisibility(GONE);
+                    restaurant_txt.setBackgroundResource(R.drawable.filter_bg);
                     check =1;
                 }
             }
