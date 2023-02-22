@@ -1,7 +1,11 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
     <array name="preloaded_fonts" translatable="false">
+        <item>@font/anonymous_pro</item>
+        <item>@font/coustard</item>
+        <item>@font/goldman</item>
         <item>@font/im_fell_double_pica_sc</item>
+        <item>@font/imprima</item>
         <item>@font/roboto_medium</item>
         <item>@font/ubuntu_bold</item>
     </array>

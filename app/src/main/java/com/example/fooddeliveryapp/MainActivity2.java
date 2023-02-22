@@ -23,9 +23,11 @@ import android.widget.Toast;
 import com.blogspot.atifsoftwares.animatoolib.Animatoo;
 import com.example.fooddeliveryapp.Adaptor.CategoryAdaptor;
 import com.example.fooddeliveryapp.Adaptor.PopularAdaptor;
+import com.example.fooddeliveryapp.Adaptor.RestaurantsAdapter;
 import com.example.fooddeliveryapp.Adaptor.SliderAdapter;
 import com.example.fooddeliveryapp.Domain.CategoryDomain;
 import com.example.fooddeliveryapp.Domain.FoodDomain;
+import com.example.fooddeliveryapp.Domain.RestaurantDomain;
 import com.google.android.material.bottomsheet.BottomSheetDialog;
 import com.google.android.material.floatingactionbutton.FloatingActionButton;
 import com.google.firebase.auth.FirebaseAuth;
@@ -42,7 +44,7 @@ import java.util.List;
 public class MainActivity2 extends AppCompatActivity {
 
     private RecyclerView.Adapter adapter;
-    private RecyclerView recyclerViewCategoryList,recyclerViewPopularList;
+    private RecyclerView recyclerViewCategoryList,recyclerViewPopularList, recyclerViewRestaurants;
 
     private DatabaseReference databaseReference;
 
@@ -53,6 +55,7 @@ public class MainActivity2 extends AppCompatActivity {
     private FirebaseUser user;
     private String userId;
 
+    TextView restaurant_txt;
 
     RadioGroup radioGroup;
     RadioButton radioButton;
@@ -62,7 +65,8 @@ public class MainActivity2 extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main2);
 
-
+        LinearLayout mainContent = findViewById(R.id.mainContentHomeScreen);
+        LinearLayout restaurants_layout = findViewById(R.id.restaurants_layout);
         viewPager2 = findViewById(R.id.viewPagerImageSlider);
         welcometxt = findViewById(R.id.welcometxt);
         user = FirebaseAuth.getInstance().getCurrentUser();
@@ -99,6 +103,26 @@ public class MainActivity2 extends AppCompatActivity {
             }
         });
 
+
+        restaurant_txt = findViewById(R.id.restaurants_txt);
+
+        restaurant_txt.setOnClickListener(new View.OnClickListener() {
+            int check = 1;
+
+            @Override
+            public void onClick(View v) {
+                if(check ==1 ) {
+                    mainContent.setVisibility(GONE);
+                    restaurants_layout.setVisibility(View.VISIBLE);
+                    check = 0;
+                }
+                else{
+                    mainContent.setVisibility(View.VISIBLE);
+                    restaurants_layout.setVisibility(GONE);
+                    check =1;
+                }
+            }
+        });
         List<SliderItem> sliderItems = new ArrayList<>();
 
         sliderItems.add(new SliderItem(R.drawable.newuser));
@@ -128,6 +152,7 @@ public class MainActivity2 extends AppCompatActivity {
         recyclerViewCategoryList();
         recyclerViewPopularList();
         bottomNavigation();
+        restaurants_BottomSheetFragment();
     }
 
     private void showBottomSheetDialogFilter() {
@@ -148,7 +173,6 @@ public class MainActivity2 extends AppCompatActivity {
                 int radioId = radioGroup.getCheckedRadioButtonId();
                 radioButton = bottomSheetDialog.findViewById(radioId);
 
-
                 bottomSheetDialog.dismiss();
             }
         });
@@ -163,6 +187,33 @@ public class MainActivity2 extends AppCompatActivity {
 
     }
 
+
+
+    private void restaurants_BottomSheetFragment(){
+        // ======creating VERTICAL linearlayput of restaurants =====
+        LinearLayoutManager linearLayoutManager = new LinearLayoutManager(this, LinearLayoutManager.VERTICAL,false);
+        recyclerViewRestaurants = findViewById(R.id.rescyclerView_Restaurants);
+        recyclerViewRestaurants.setLayoutManager(linearLayoutManager);
+
+        ArrayList<RestaurantDomain> restaurantDomainArrayList = new ArrayList<>();
+
+        restaurantDomainArrayList.add(new RestaurantDomain("Non veg Zaika - The Biryani House","resto1","Non veg","nonvegpng","Within 1 km"));
+        restaurantDomainArrayList.add(new RestaurantDomain("Milan Pure Veg Restaurant","resto2","Pure veg","pureveg","Within 1.5 km"));
+        restaurantDomainArrayList.add(new RestaurantDomain("Vaishali - Shahi Restaurant","resto3","Pure veg","pureveg","Within 2 km"));
+        restaurantDomainArrayList.add(new RestaurantDomain("Anna's - South Indian Restaurant","resto4","Pure veg","pureveg","Within 900 m"));
+        restaurantDomainArrayList.add(new RestaurantDomain("Cafe Barista - Resto & Bar","resto5","Pure veg","pureveg","Within 1km"));
+        restaurantDomainArrayList.add(new RestaurantDomain("Empire Restaurant","resto6","Pure veg","pureveg","Within 500 m"));
+        restaurantDomainArrayList.add(new RestaurantDomain("Bikkgane Biryani","resto7","Non veg","nonvegpng","Within 3 km"));
+        restaurantDomainArrayList.add(new RestaurantDomain("Khana Khazana","resto8","Pure veg","pureveg","Within 1.2 km"));
+        restaurantDomainArrayList.add(new RestaurantDomain("Iceland Fruits & Desserts","resto9","Pure veg","pureveg","Within 2.5 km"));
+        restaurantDomainArrayList.add(new RestaurantDomain("Punjab Sweet Corner","resto10","Pure veg","pureveg","Within 600 m"));
+
+
+        RecyclerView.Adapter adapter_restaurants = new RestaurantsAdapter(restaurantDomainArrayList);
+        recyclerViewRestaurants.setAdapter(adapter_restaurants);
+
+
+    }
 
     public void checkButton(View v){
         int radioId = radioGroup.getCheckedRadioButtonId();
