@@ -4,6 +4,7 @@ import static android.view.View.GONE;
 
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.constraintlayout.widget.ConstraintLayout;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 import androidx.viewpager2.widget.ViewPager2;
@@ -48,6 +49,7 @@ public class MainActivity2 extends AppCompatActivity {
 
     private DatabaseReference databaseReference;
 
+    private LinearLayout restaurants_layout;
     private ViewPager2 viewPager2;
     private Handler sliderHandler = new Handler();
 
@@ -65,8 +67,7 @@ public class MainActivity2 extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main2);
 
-        LinearLayout mainContent = findViewById(R.id.mainContentHomeScreen);
-        LinearLayout restaurants_layout = findViewById(R.id.restaurants_layout);
+        ConstraintLayout mainContent = findViewById(R.id.toggleMainContent);
         viewPager2 = findViewById(R.id.viewPagerImageSlider);
         welcometxt = findViewById(R.id.welcometxt);
         user = FirebaseAuth.getInstance().getCurrentUser();
@@ -115,7 +116,7 @@ public class MainActivity2 extends AppCompatActivity {
 
 
         restaurant_txt = findViewById(R.id.restaurants_txt);
-
+        restaurants_layout = findViewById(R.id.restaurants_layout);
         restaurant_txt.setOnClickListener(new View.OnClickListener() {
             int check = 1;
 
@@ -200,11 +201,13 @@ public class MainActivity2 extends AppCompatActivity {
     }
 
 
-
     private void restaurants_BottomSheetFragment(){
+
         // ======creating VERTICAL linearlayput of restaurants =====
         LinearLayoutManager linearLayoutManager = new LinearLayoutManager(this, LinearLayoutManager.VERTICAL,false);
-        recyclerViewRestaurants = findViewById(R.id.rescyclerView_Restaurants);
+//        recyclerViewRestaurants = findViewById(R.id.rescyclerView_Restaurants);
+         recyclerViewRestaurants = findViewById(R.id.recyclerView_restaurants);
+
         recyclerViewRestaurants.setLayoutManager(linearLayoutManager);
 
         ArrayList<RestaurantDomain> restaurantDomainArrayList = new ArrayList<>();

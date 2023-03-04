@@ -8,6 +8,6 @@
     android:background="@drawable/cart_background"
     android:elevation="3dp"
     app:riv_corner_radius="12dp"
-    android:layout_margin="5dp">
+    >
 
 </com.makeramen.roundedimageview.RoundedImageView>
