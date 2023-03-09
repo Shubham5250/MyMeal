@@ -16,7 +16,7 @@
 
 public class ShowDetailsActivity extends AppCompatActivity {
 
-    private TextView titleText, feeTxt;
+    private TextView titleText, feeTxt, checkout;
     private TextView minusTxt, plusTxt, numberTxt,addToCartTxt,descriptionText;
     private ImageView picFood;
     private FoodDomain object;
@@ -30,8 +30,9 @@ public class ShowDetailsActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_show_details);
 
-
         managementCart  = new ManagementCart(this);
+
+
         initView();
         getBundle();
 

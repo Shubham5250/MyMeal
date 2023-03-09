@@ -115,6 +115,7 @@ public class MainActivity2 extends AppCompatActivity {
         });
 
 
+
         restaurant_txt = findViewById(R.id.restaurants_txt);
         restaurants_layout = findViewById(R.id.restaurants_layout);
         restaurant_txt.setOnClickListener(new View.OnClickListener() {

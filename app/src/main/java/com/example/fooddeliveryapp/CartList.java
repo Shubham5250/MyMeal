@@ -11,6 +11,7 @@ import android.widget.LinearLayout;
 import android.widget.ScrollView;
 import android.widget.TextView;
 
+import com.airbnb.lottie.LottieAnimationView;
 import com.blogspot.atifsoftwares.animatoolib.Animatoo;
 import com.example.fooddeliveryapp.Adaptor.CartListAdapator;
 import com.example.fooddeliveryapp.Helper.ManagementCart;
@@ -22,7 +23,8 @@ public class CartList extends AppCompatActivity {
     private RecyclerView.Adapter adapter;
     private RecyclerView recyclerViewList;
     private ManagementCart managementCart;
-    TextView totalItemFee, discountText, taxText, deliveryChargesText,totalText,emptyTxt;
+    LottieAnimationView anim;
+    TextView totalItemFee, discountText, taxText, deliveryChargesText,totalText,emptyTxt, checkout;
     private double tax;
     ScrollView scrollView3;
 
@@ -33,7 +35,6 @@ public class CartList extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_cart_list);
 
-
         managementCart = new ManagementCart(this);
 
         initView();
@@ -42,6 +43,8 @@ public class CartList extends AppCompatActivity {
         bottomNavigation();
 
     }
+
+
 
     private void bottomNavigation(){
         FloatingActionButton floatingActionButton = findViewById(R.id.cartPng);
