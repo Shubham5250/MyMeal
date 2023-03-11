@@ -3,6 +3,8 @@ package com.example.fooddeliveryapp.Adaptor;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Filter;
+import android.widget.Filterable;
 import android.widget.ImageView;
 import android.widget.TextView;
 
@@ -10,19 +12,21 @@ import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.bumptech.glide.Glide;
-import com.example.fooddeliveryapp.Domain.CategoryDomain;
 import com.example.fooddeliveryapp.Domain.RestaurantDomain;
 import com.example.fooddeliveryapp.R;
 
 import java.util.ArrayList;
 
-public class RestaurantsAdapter extends RecyclerView.Adapter<RestaurantsAdapter.ViewHolder> {
+public class RestaurantsAdapter extends RecyclerView.Adapter<RestaurantsAdapter.ViewHolder> implements Filterable {
 
     ArrayList<RestaurantDomain> restaurantDomains;
+    ArrayList<RestaurantDomain> restaurantDomainsFull;
 
 
     public RestaurantsAdapter(ArrayList<RestaurantDomain> restaurantDomains){
         this.restaurantDomains = restaurantDomains;
+        restaurantDomainsFull = new ArrayList<>(restaurantDomains);
+
     }
 
 
@@ -75,6 +79,41 @@ public class RestaurantsAdapter extends RecyclerView.Adapter<RestaurantsAdapter.
         }
     }
 
+    @Override
+    public Filter getFilter(){
+        return restaurantDomainsFilter;
+    }
+
+    private Filter restaurantDomainsFilter = new Filter() {
+        @Override
+        protected FilterResults performFiltering(CharSequence constraint) {
+            ArrayList<RestaurantDomain> filteredList = new ArrayList<>();
+
+            if(constraint == null || constraint.length() == 0){
+                filteredList.addAll(restaurantDomainsFull);
+            }
+            else{
+                String filterPattern = constraint.toString().toLowerCase().trim();
+
+                for(RestaurantDomain item: restaurantDomainsFull){
+                    if(item.getTitle().toLowerCase().contains(filterPattern)){
+                        filteredList.add(item);
+                    }
+                }
+            }
+            FilterResults results = new FilterResults();
+            results.values = filteredList;
+
+            return results;
+        }
+
+        @Override
+        protected void publishResults(CharSequence constraint, FilterResults results) {
+            restaurantDomains.clear();
+            restaurantDomains.addAll((ArrayList) results.values );
+            notifyDataSetChanged();
+        }
+    };
 }
 
 
