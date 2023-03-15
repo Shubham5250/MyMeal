@@ -16,6 +16,7 @@ import com.blogspot.atifsoftwares.animatoolib.Animatoo;
 import com.example.fooddeliveryapp.Adaptor.CartListAdapator;
 import com.example.fooddeliveryapp.Helper.ManagementCart;
 import com.example.fooddeliveryapp.Interface.ChangeNumberItemListener;
+import com.google.android.material.bottomsheet.BottomSheetDialog;
 import com.google.android.material.floatingactionbutton.FloatingActionButton;
 
 public class CartList extends AppCompatActivity {
@@ -29,7 +30,6 @@ public class CartList extends AppCompatActivity {
     ScrollView scrollView3;
 
 
-
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -41,7 +41,7 @@ public class CartList extends AppCompatActivity {
         initList();
         calculateCart();
         bottomNavigation();
-
+        showProceedForPaymentBottomSheetDialog();
     }
 
 
@@ -136,6 +136,19 @@ public class CartList extends AppCompatActivity {
         deliveryChargesText.setText("₹"+ delivery);
         totalText.setText("₹"+total);
 
+    }
+
+    private void showProceedForPaymentBottomSheetDialog(){
+        final BottomSheetDialog bottomSheetDialogProceedToPayment = new BottomSheetDialog(this);
+        bottomSheetDialogProceedToPayment.setContentView(R.layout.proceed_to_payment);
+        checkout = findViewById(R.id.checkout);
+        checkout.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                bottomSheetDialogProceedToPayment.show();
+
+            }
+        });
     }
 
 }
