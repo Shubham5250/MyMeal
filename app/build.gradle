@@ -55,6 +55,7 @@ dependencies {
     implementation 'com.google.code.gson:gson:2.8.7'
     implementation 'com.makeramen:roundedimageview:2.3.0'
     implementation 'com.airbnb.android:lottie:3.7.0'
+    implementation 'com.razorpay:checkout:1.5.16'
 
 
 }
