@@ -1,5 +1,6 @@
 package com.example.fooddeliveryapp;
 
+import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
@@ -10,6 +11,7 @@ import android.view.View;
 import android.widget.LinearLayout;
 import android.widget.ScrollView;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import com.airbnb.lottie.LottieAnimationView;
 import com.blogspot.atifsoftwares.animatoolib.Animatoo;
@@ -18,6 +20,15 @@ import com.example.fooddeliveryapp.Helper.ManagementCart;
 import com.example.fooddeliveryapp.Interface.ChangeNumberItemListener;
 import com.google.android.material.bottomsheet.BottomSheetDialog;
 import com.google.android.material.floatingactionbutton.FloatingActionButton;
+import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.auth.FirebaseUser;
+import com.google.firebase.database.DataSnapshot;
+import com.google.firebase.database.DatabaseError;
+import com.google.firebase.database.DatabaseReference;
+import com.google.firebase.database.FirebaseDatabase;
+import com.google.firebase.database.ValueEventListener;
+
+import org.w3c.dom.Text;
 
 public class CartList extends AppCompatActivity {
 
@@ -26,9 +37,13 @@ public class CartList extends AppCompatActivity {
     private ManagementCart managementCart;
     LottieAnimationView anim;
     TextView totalItemFee, discountText, taxText, deliveryChargesText,totalText,emptyTxt, checkout;
+
     private double tax;
     ScrollView scrollView3;
 
+    private FirebaseUser user;
+    private DatabaseReference databaseReference;
+    private String userId;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -36,6 +51,12 @@ public class CartList extends AppCompatActivity {
         setContentView(R.layout.activity_cart_list);
 
         managementCart = new ManagementCart(this);
+
+        user = FirebaseAuth.getInstance().getCurrentUser();
+        databaseReference = FirebaseDatabase.getInstance().getReference("users");
+        userId = user.getUid();
+
+
 
         initView();
         initList();
@@ -130,11 +151,10 @@ public class CartList extends AppCompatActivity {
         double total = Math.round((managementCart.getTotalFee()+ tax + delivery)*100)/100;
         double itemTotal = Math.round(managementCart.getTotalFee()*100)/100;
 
-
         totalItemFee.setText("₹"+ itemTotal);
         taxText.setText("₹"+ tax);
         deliveryChargesText.setText("₹"+ delivery);
-        totalText.setText("₹"+total);
+        totalText.setText("₹"+ total);
 
     }
 
@@ -142,11 +162,42 @@ public class CartList extends AppCompatActivity {
         final BottomSheetDialog bottomSheetDialogProceedToPayment = new BottomSheetDialog(this);
         bottomSheetDialogProceedToPayment.setContentView(R.layout.proceed_to_payment);
         checkout = findViewById(R.id.checkout);
+
         checkout.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                bottomSheetDialogProceedToPayment.show();
+                double delivery = 10;
 
+                double total = Math.round((managementCart.getTotalFee()+ tax + delivery)*100)/100;
+                TextView cart_amount =  bottomSheetDialogProceedToPayment.findViewById(R.id.cart_amount);
+                cart_amount.setText("₹" + total);
+
+                final TextView customer_name_bill = (TextView) bottomSheetDialogProceedToPayment.findViewById(R.id.customer_name_bill);
+
+                final TextView user_phone = (TextView) bottomSheetDialogProceedToPayment.findViewById(R.id.user_phone);
+
+                databaseReference.child(String.valueOf(userId)).addListenerForSingleValueEvent(new ValueEventListener() {
+                    @Override
+                    public void onDataChange(@NonNull DataSnapshot snapshot) {
+                        user userProfile = snapshot.getValue(user.class);
+
+                        if(userProfile != null){
+
+                            String name = userProfile.user_name;
+                            String phone = userProfile.user_phone;
+
+                            customer_name_bill.setText(name);
+                            user_phone.setText(phone);
+                        }
+                    }
+
+                    @Override
+                    public void onCancelled(@NonNull DatabaseError error) {
+                        Toast.makeText(CartList.this, "Something wrong!", Toast.LENGTH_SHORT).show();
+                    }
+                });
+
+                bottomSheetDialogProceedToPayment.show();
             }
         });
     }
