@@ -5,9 +5,12 @@ import androidx.appcompat.app.AppCompatActivity;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
+import android.app.Activity;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
+import android.widget.Button;
+import android.widget.EditText;
 import android.widget.LinearLayout;
 import android.widget.ScrollView;
 import android.widget.TextView;
@@ -27,6 +30,7 @@ import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.ValueEventListener;
+//import com.razorpay.Checkout;
 
 import org.w3c.dom.Text;
 
@@ -166,16 +170,21 @@ public class CartList extends AppCompatActivity {
         checkout.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                double delivery = 10;
 
+                TextView proceed_to_pay = bottomSheetDialogProceedToPayment.findViewById(R.id.proceed_to_pay);
+
+                //<------------- Bottom Sheet Fragment Details (show()) ------------>
+
+                EditText flatno_buildingname = (EditText) bottomSheetDialogProceedToPayment.findViewById(R.id.flatno_buildingname);
+                EditText streetname_area = (EditText) bottomSheetDialogProceedToPayment.findViewById(R.id.streetname_area);
+                EditText landmark = (EditText) bottomSheetDialogProceedToPayment.findViewById(R.id.landmark);
+
+                double delivery = 10;
                 double total = Math.round((managementCart.getTotalFee()+ tax + delivery)*100)/100;
                 TextView cart_amount =  bottomSheetDialogProceedToPayment.findViewById(R.id.cart_amount);
                 cart_amount.setText("₹" + total);
-
                 final TextView customer_name_bill = (TextView) bottomSheetDialogProceedToPayment.findViewById(R.id.customer_name_bill);
-
                 final TextView user_phone = (TextView) bottomSheetDialogProceedToPayment.findViewById(R.id.user_phone);
-
                 databaseReference.child(String.valueOf(userId)).addListenerForSingleValueEvent(new ValueEventListener() {
                     @Override
                     public void onDataChange(@NonNull DataSnapshot snapshot) {
@@ -198,8 +207,49 @@ public class CartList extends AppCompatActivity {
                 });
 
                 bottomSheetDialogProceedToPayment.show();
+
+
+
+
+                // <------------ PAYMENT GATEWAY ---------->
+
+                //object of the Razorpay dependency
+                // we are preloading libraries
+
+                proceed_to_pay.setOnClickListener(new View.OnClickListener() {
+                    @Override
+                    public void onClick(View v) {
+                        String flatno_addr = flatno_buildingname.getText().toString();
+                        String street_addr = streetname_area.getText().toString();
+                        String landmark_addr = landmark.getText().toString();
+
+                        if(flatno_addr.isEmpty()){
+                            flatno_buildingname.setError("Flat number required");
+                            flatno_buildingname.requestFocus();
+                            return;
+                        }
+                        else if(street_addr.isEmpty()){
+                            streetname_area.setError("Street name required");
+                            streetname_area.requestFocus();
+                            return;
+
+                        }
+                        else if(landmark_addr.isEmpty()){
+                            landmark.setError("Landmark required");
+                            landmark.requestFocus();
+                            return;
+
+                        }
+                        Intent intent = new Intent(CartList.this, redirection_splash.class);
+                        startActivity(intent);
+
+                    }
+                });
+
             }
         });
     }
+
+
 
 }
