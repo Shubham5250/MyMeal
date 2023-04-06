@@ -20,5 +20,8 @@ The Bottom Navigation Contains👇🏻
 
 
 
-https://user-images.githubusercontent.com/95043909/230472353-2e0dbdd0-e561-41b0-a1dd-7ea39088dbdd.mp4
+
+
+
+https://user-images.githubusercontent.com/95043909/230474968-49525f0a-975b-4d8a-9730-75c04daef6a5.mp4
 
